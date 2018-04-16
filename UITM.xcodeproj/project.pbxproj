@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FCF023B2084211B0087FAF4 /* ui_report.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCF02392084211B0087FAF4 /* ui_report.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FCF0244208422AB0087FAF4 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF0243208422AB0087FAF4 /* UITM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1FCF02362084211B0087FAF4 /* ui_report.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ui_report.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FCF02392084211B0087FAF4 /* ui_report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui_report.h; sourceTree = "<group>"; };
+		1FCF02362084211B0087FAF4 /* UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCF023A2084211B0087FAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCF0243208422AB0087FAF4 /* UITM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,7 +30,7 @@
 		1FCF022C2084211B0087FAF4 = {
 			isa = PBXGroup;
 			children = (
-				1FCF02382084211B0087FAF4 /* ui_report */,
+				1FCF02382084211B0087FAF4 /* UITM */,
 				1FCF02372084211B0087FAF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,19 +38,18 @@
 		1FCF02372084211B0087FAF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FCF02362084211B0087FAF4 /* ui_report.framework */,
+				1FCF02362084211B0087FAF4 /* UITM.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FCF02382084211B0087FAF4 /* ui_report */ = {
+		1FCF02382084211B0087FAF4 /* UITM */ = {
 			isa = PBXGroup;
 			children = (
 				1FCF0242208421C80087FAF4 /* lib */,
-				1FCF02392084211B0087FAF4 /* ui_report.h */,
 				1FCF023A2084211B0087FAF4 /* Info.plist */,
 			);
-			path = ui_report;
+			path = UITM;
 			sourceTree = "<group>";
 		};
 		1FCF0242208421C80087FAF4 /* lib */ = {
@@ -70,16 +67,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FCF023B2084211B0087FAF4 /* ui_report.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FCF02352084211B0087FAF4 /* ui_report */ = {
+		1FCF02352084211B0087FAF4 /* UITM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FCF023E2084211B0087FAF4 /* Build configuration list for PBXNativeTarget "ui_report" */;
+			buildConfigurationList = 1FCF023E2084211B0087FAF4 /* Build configuration list for PBXNativeTarget "UITM" */;
 			buildPhases = (
 				1FCF02312084211B0087FAF4 /* Sources */,
 				1FCF02322084211B0087FAF4 /* Frameworks */,
@@ -90,9 +86,9 @@
 			);
 			dependencies = (
 			);
-			name = ui_report;
+			name = UITM;
 			productName = ui_report;
-			productReference = 1FCF02362084211B0087FAF4 /* ui_report.framework */;
+			productReference = 1FCF02362084211B0087FAF4 /* UITM.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FCF02302084211B0087FAF4 /* Build configuration list for PBXProject "ui_report" */;
+			buildConfigurationList = 1FCF02302084211B0087FAF4 /* Build configuration list for PBXProject "UITM" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FCF02352084211B0087FAF4 /* ui_report */,
+				1FCF02352084211B0087FAF4 /* UITM */,
 			);
 		};
 /* End PBXProject section */
@@ -309,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FCF02302084211B0087FAF4 /* Build configuration list for PBXProject "ui_report" */ = {
+		1FCF02302084211B0087FAF4 /* Build configuration list for PBXProject "UITM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCF023C2084211B0087FAF4 /* Debug */,
@@ -318,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FCF023E2084211B0087FAF4 /* Build configuration list for PBXNativeTarget "ui_report" */ = {
+		1FCF023E2084211B0087FAF4 /* Build configuration list for PBXNativeTarget "UITM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FCF023F2084211B0087FAF4 /* Debug */,
