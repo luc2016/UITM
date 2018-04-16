@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.7.0)
+  - Alamofire-Synchronous (4.0.0):
+    - Alamofire (~> 4.0)
+  - AWSCognito (2.6.16):
+    - AWSCore (= 2.6.16)
+  - AWSCore (2.6.16)
+  - AWSS3 (2.6.16):
+    - AWSCore (= 2.6.16)
+
+DEPENDENCIES:
+  - Alamofire-Synchronous (~> 4.0)
+  - AWSCognito
+  - AWSCore
+  - AWSS3
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Alamofire-Synchronous: eedf1e6e961c3795a63c74990b3f7d9fbfac7e50
+  AWSCognito: 459ff17ab8aea9a19d57f2c9051cd124e10ef90d
+  AWSCore: 314df68684e338310409c6a3b050e28932deb6ff
+  AWSS3: 218b24bc68387f0c715fd37168f9db6cbec9d0a7
+
+PODFILE CHECKSUM: ddf0e62c2b74ff7942809225cf198d0b931585d1
+
+COCOAPODS: 1.4.0
