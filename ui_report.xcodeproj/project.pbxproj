@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1FCF023B2084211B0087FAF4 /* ui_report.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCF02392084211B0087FAF4 /* ui_report.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FCF0244208422AB0087FAF4 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF0243208422AB0087FAF4 /* UITM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1FCF02362084211B0087FAF4 /* ui_report.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ui_report.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCF02392084211B0087FAF4 /* ui_report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui_report.h; sourceTree = "<group>"; };
 		1FCF023A2084211B0087FAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FCF0243208422AB0087FAF4 /* UITM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +48,19 @@
 		1FCF02382084211B0087FAF4 /* ui_report */ = {
 			isa = PBXGroup;
 			children = (
+				1FCF0242208421C80087FAF4 /* lib */,
 				1FCF02392084211B0087FAF4 /* ui_report.h */,
 				1FCF023A2084211B0087FAF4 /* Info.plist */,
 			);
 			path = ui_report;
+			sourceTree = "<group>";
+		};
+		1FCF0242208421C80087FAF4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1FCF0243208422AB0087FAF4 /* UITM.swift */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +106,7 @@
 				TargetAttributes = {
 					1FCF02352084211B0087FAF4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCF0244208422AB0087FAF4 /* UITM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +266,7 @@
 		1FCF023F2084211B0087FAF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -265,6 +279,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "lc.ui-report";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -273,6 +288,7 @@
 		1FCF02402084211B0087FAF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
