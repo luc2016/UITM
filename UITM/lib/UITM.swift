@@ -9,9 +9,9 @@
 import Foundation
 
 public class UITM{
-    static let shared = UITM()
+    public static let shared = UITM()
     
-    func foo(){
+    public func foo(){
         
     }
 }

@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FADF50820866C590015C269 /* XCUI_UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50720866C590015C269 /* XCUI_UITM.swift */; };
+		1FADF50E20866C840015C269 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
 		1FCF0244208422AB0087FAF4 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF0243208422AB0087FAF4 /* UITM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FADF50520866C590015C269 /* XCUI_UITM.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCUI_UITM.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FADF50720866C590015C269 /* XCUI_UITM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUI_UITM.swift; sourceTree = "<group>"; };
+		1FADF50920866C590015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
 		1FCF02362084211B0087FAF4 /* UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCF023A2084211B0087FAF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FCF0243208422AB0087FAF4 /* UITM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1FADF50220866C590015C269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FCF02322084211B0087FAF4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -27,10 +40,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FADF50620866C590015C269 /* XCUI_UITM */ = {
+			isa = PBXGroup;
+			children = (
+				1FADF50720866C590015C269 /* XCUI_UITM.swift */,
+				1FADF50920866C590015C269 /* Info.plist */,
+				1FADF50D20866C840015C269 /* TMObserver.swift */,
+			);
+			path = XCUI_UITM;
+			sourceTree = "<group>";
+		};
 		1FCF022C2084211B0087FAF4 = {
 			isa = PBXGroup;
 			children = (
 				1FCF02382084211B0087FAF4 /* UITM */,
+				1FADF50620866C590015C269 /* XCUI_UITM */,
 				1FCF02372084211B0087FAF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				1FCF02362084211B0087FAF4 /* UITM.framework */,
+				1FADF50520866C590015C269 /* XCUI_UITM.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +98,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1FADF50420866C590015C269 /* XCUI_UITM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FADF50C20866C590015C269 /* Build configuration list for PBXNativeTarget "XCUI_UITM" */;
+			buildPhases = (
+				1FADF50120866C590015C269 /* Sources */,
+				1FADF50220866C590015C269 /* Frameworks */,
+				1FADF50320866C590015C269 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCUI_UITM;
+			productName = XCUI_UITM;
+			productReference = 1FADF50520866C590015C269 /* XCUI_UITM.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		1FCF02352084211B0087FAF4 /* UITM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FCF023E2084211B0087FAF4 /* Build configuration list for PBXNativeTarget "UITM" */;
@@ -97,9 +139,14 @@
 		1FCF022D2084211B0087FAF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = lcl;
 				TargetAttributes = {
+					1FADF50420866C590015C269 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 					1FCF02352084211B0087FAF4 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -120,11 +167,19 @@
 			projectRoot = "";
 			targets = (
 				1FCF02352084211B0087FAF4 /* UITM */,
+				1FADF50420866C590015C269 /* XCUI_UITM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1FADF50320866C590015C269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FCF02342084211B0087FAF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +190,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1FADF50120866C590015C269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FADF50E20866C840015C269 /* TMObserver.swift in Sources */,
+				1FADF50820866C590015C269 /* XCUI_UITM.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FCF02312084211B0087FAF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,6 +210,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1FADF50A20866C590015C269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XCUI_UITM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lc.XCUI-UITM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FADF50B20866C590015C269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XCUI_UITM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lc.XCUI-UITM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1FCF023C2084211B0087FAF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,6 +403,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1FADF50C20866C590015C269 /* Build configuration list for PBXNativeTarget "XCUI_UITM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FADF50A20866C590015C269 /* Debug */,
+				1FADF50B20866C590015C269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1FCF02302084211B0087FAF4 /* Build configuration list for PBXProject "UITM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
