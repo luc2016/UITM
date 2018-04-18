@@ -7,43 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FADF50E20866C840015C269 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
-		EBDE7C7229A0903B960478B7 /* Pods_UITM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */; };
+		1FADF5292086E8690015C269 /* UITM.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FADF5272086E8690015C269 /* UITM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FADF52F2086E8AC0015C269 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF52E2086E8AC0015C269 /* Extensions.swift */; };
+		4B0CF0AC154EE4EAA4A466FA /* Pods_UITM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FADF50520866C590015C269 /* UITM.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITM.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FADF50920866C590015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
+		1FADF5252086E8690015C269 /* UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FADF5272086E8690015C269 /* UITM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITM.h; sourceTree = "<group>"; };
+		1FADF5282086E8690015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FADF52E2086E8AC0015C269 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3188C929593557AFDB875700 /* Pods-UITM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITM/Pods-UITM.debug.xcconfig"; sourceTree = "<group>"; };
 		C7847CC8C33D0D7BD47A7E3A /* Pods-UITM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITM.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITM/Pods-UITM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1FADF50220866C590015C269 /* Frameworks */ = {
+		1FADF5212086E8690015C269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBDE7C7229A0903B960478B7 /* Pods_UITM.framework in Frameworks */,
+				4B0CF0AC154EE4EAA4A466FA /* Pods_UITM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1FADF50620866C590015C269 /* XCUI_UITM */ = {
+		1FADF5262086E8690015C269 /* UITM */ = {
 			isa = PBXGroup;
 			children = (
-				1FADF50F208670480015C269 /* lib */,
-				1FADF50920866C590015C269 /* Info.plist */,
+				1FADF52D2086E8750015C269 /* lib */,
+				1FADF5272086E8690015C269 /* UITM.h */,
+				1FADF5282086E8690015C269 /* Info.plist */,
 			);
-			path = XCUI_UITM;
+			path = UITM;
 			sourceTree = "<group>";
 		};
-		1FADF50F208670480015C269 /* lib */ = {
+		1FADF52D2086E8750015C269 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				1FADF52E2086E8AC0015C269 /* Extensions.swift */,
 				1FADF50D20866C840015C269 /* TMObserver.swift */,
 			);
 			path = lib;
@@ -52,7 +57,7 @@
 		1FCF022C2084211B0087FAF4 = {
 			isa = PBXGroup;
 			children = (
-				1FADF50620866C590015C269 /* XCUI_UITM */,
+				1FADF5262086E8690015C269 /* UITM */,
 				1FCF02372084211B0087FAF4 /* Products */,
 				7579210652AC6117577361C7 /* Pods */,
 				4A51F27967C8AF19956CF679 /* Frameworks */,
@@ -62,7 +67,7 @@
 		1FCF02372084211B0087FAF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FADF50520866C590015C269 /* UITM.xctest */,
+				1FADF5252086E8690015C269 /* UITM.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,26 +91,37 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1FADF5222086E8690015C269 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FADF5292086E8690015C269 /* UITM.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		1FADF50420866C590015C269 /* UITM */ = {
+		1FADF5242086E8690015C269 /* UITM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FADF50C20866C590015C269 /* Build configuration list for PBXNativeTarget "UITM" */;
+			buildConfigurationList = 1FADF52A2086E8690015C269 /* Build configuration list for PBXNativeTarget "UITM" */;
 			buildPhases = (
-				BBA65963FCAD352FA7BF1852 /* [CP] Check Pods Manifest.lock */,
-				1FADF50120866C590015C269 /* Sources */,
-				1FADF50220866C590015C269 /* Frameworks */,
-				1FADF50320866C590015C269 /* Resources */,
-				2ADA88A112222165A1564CFD /* [CP] Embed Pods Frameworks */,
-				5A51904DD7CF68FC8D775759 /* [CP] Copy Pods Resources */,
+				8AD2F2BD38C1199AB19040EE /* [CP] Check Pods Manifest.lock */,
+				1FADF5202086E8690015C269 /* Sources */,
+				1FADF5212086E8690015C269 /* Frameworks */,
+				1FADF5222086E8690015C269 /* Headers */,
+				1FADF5232086E8690015C269 /* Resources */,
+				EBAC765B19C96AD039F7FB57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = UITM;
-			productName = XCUI_UITM;
-			productReference = 1FADF50520866C590015C269 /* UITM.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			productName = UITM;
+			productReference = 1FADF5252086E8690015C269 /* UITM.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -117,8 +133,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = lcl;
 				TargetAttributes = {
-					1FADF50420866C590015C269 = {
+					1FADF5242086E8690015C269 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -135,13 +152,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FADF50420866C590015C269 /* UITM */,
+				1FADF5242086E8690015C269 /* UITM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1FADF50320866C590015C269 /* Resources */ = {
+		1FADF5232086E8690015C269 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,40 +168,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2ADA88A112222165A1564CFD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-UITM/Pods-UITM-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITM/Pods-UITM-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A51904DD7CF68FC8D775759 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITM/Pods-UITM-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBA65963FCAD352FA7BF1852 /* [CP] Check Pods Manifest.lock */ = {
+		8AD2F2BD38C1199AB19040EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,51 +186,83 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EBAC765B19C96AD039F7FB57 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITM/Pods-UITM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1FADF50120866C590015C269 /* Sources */ = {
+		1FADF5202086E8690015C269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FADF50E20866C840015C269 /* TMObserver.swift in Sources */,
+				1FADF52F2086E8AC0015C269 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1FADF50A20866C590015C269 /* Debug */ = {
+		1FADF52B2086E8690015C269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3188C929593557AFDB875700 /* Pods-UITM.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = XCUI_UITM/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UITM/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lc.XCUI-UITM";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = lc.UITM;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		1FADF50B20866C590015C269 /* Release */ = {
+		1FADF52C2086E8690015C269 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C7847CC8C33D0D7BD47A7E3A /* Pods-UITM.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = XCUI_UITM/Info.plist;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UITM/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lc.XCUI-UITM";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = lc.UITM;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,11 +384,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FADF50C20866C590015C269 /* Build configuration list for PBXNativeTarget "UITM" */ = {
+		1FADF52A2086E8690015C269 /* Build configuration list for PBXNativeTarget "UITM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1FADF50A20866C590015C269 /* Debug */,
-				1FADF50B20866C590015C269 /* Release */,
+				1FADF52B2086E8690015C269 /* Debug */,
+				1FADF52C2086E8690015C269 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

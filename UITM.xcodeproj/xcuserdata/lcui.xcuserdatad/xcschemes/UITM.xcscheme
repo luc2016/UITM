@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FADF50420866C590015C269"
-               BuildableName = "UITM.xctest"
+               BlueprintIdentifier = "1FADF5242086E8690015C269"
+               BuildableName = "UITM.framework"
                BlueprintName = "UITM"
                ReferencedContainer = "container:UITM.xcodeproj">
             </BuildableReference>
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FADF50420866C590015C269"
-               BuildableName = "UITM.xctest"
+               BlueprintIdentifier = "1FADF5242086E8690015C269"
+               BuildableName = "UITM.framework"
                BlueprintName = "UITM"
                ReferencedContainer = "container:UITM.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FADF50420866C590015C269"
-            BuildableName = "UITM.xctest"
+            BlueprintIdentifier = "1FADF5242086E8690015C269"
+            BuildableName = "UITM.framework"
             BlueprintName = "UITM"
             ReferencedContainer = "container:UITM.xcodeproj">
          </BuildableReference>
@@ -64,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FADF50420866C590015C269"
-            BuildableName = "UITM.xctest"
+            BlueprintIdentifier = "1FADF5242086E8690015C269"
+            BuildableName = "UITM.framework"
             BlueprintName = "UITM"
             ReferencedContainer = "container:UITM.xcodeproj">
          </BuildableReference>
@@ -82,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FADF50420866C590015C269"
-            BuildableName = "UITM.xctest"
+            BlueprintIdentifier = "1FADF5242086E8690015C269"
+            BuildableName = "UITM.framework"
             BlueprintName = "UITM"
             ReferencedContainer = "container:UITM.xcodeproj">
          </BuildableReference>
