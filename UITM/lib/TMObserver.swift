@@ -13,7 +13,7 @@ import Alamofire
 //import Alamofire_Synchronous
 
 public class TMObserver: NSObject, XCTestObservation {
-    
+
     public static var shared = TMObserver()
 
     public func testCaseWillStart(_ testCase: XCTestCase) {
@@ -46,6 +46,9 @@ public class TMObserver: NSObject, XCTestObservation {
 //
 //     public func foo() {
 //        print("test case Started")
+//        let headers = ["authorization": "Basic RmVycmlzOmZlcnJpcw=="]
+//        let responseFromOauth = Alamofire.request("https://jira.lblw.ca/rest/atm/1.0/testrun/GOLM-R14", method: .get, headers:headers).validate().responseJSON()
+//
 //    }
 //
 //}
