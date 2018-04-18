@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cfbb273-9a42-4c6e-96b4-9793de257eb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TMObserver.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UITM.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XCUI_UITM/Info.plist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XCUI_UITM/TMObserver.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XCUI_UITM/XCUI_UITM.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Extensions.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UITM/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UITM/lib/UITM.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/XCUI_UITM/XCUI_UITM.swift" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/XCUI_UITM/TMObserver.swift" afterPath="$PROJECT_DIR$/XCUI_UITM/lib/TMObserver.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.podspec" afterPath="$PROJECT_DIR$/UITM.podspec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM/lib/UITM.swift" afterPath="$PROJECT_DIR$/UITM/lib/UITM.swift" />
     </list>
     <ignored path="ui_report.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +34,18 @@
       <file leaf-file-name="UITM.podspec" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UITM.podspec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="94" column="40" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+            <state relative-caret-position="450">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TMObserver.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TMObserver.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -259,18 +268,19 @@
       <workItem from="1523838642685" duration="2085000" />
       <workItem from="1523842270261" duration="911000" />
       <workItem from="1523843648338" duration="617000" />
-      <workItem from="1523987744382" duration="419000" />
+      <workItem from="1523987744382" duration="453000" />
+      <workItem from="1523988632261" duration="1155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4032000" />
+    <option name="totallyTimeSpent" value="5221000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="1" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25885227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26190478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -329,14 +339,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_report.xcodeproj/project.pbxproj" />
-    <entry file="file://$PROJECT_DIR$/ui_report/lib/UITM.swift" />
-    <entry file="file://$PROJECT_DIR$/ui_report/lib/UITM.swift" />
-    <entry file="file://$PROJECT_DIR$/ui_report.xcodeproj/project.pbxproj" />
     <entry file="file://$PROJECT_DIR$/UITM.podspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="94" column="40" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_report.xcodeproj/project.pbxproj" />
+    <entry file="file://$PROJECT_DIR$/ui_report/lib/UITM.swift" />
+    <entry file="file://$PROJECT_DIR$/ui_report/lib/UITM.swift" />
+    <entry file="file://$PROJECT_DIR$/ui_report.xcodeproj/project.pbxproj" />
+    <entry file="file://$PROJECT_DIR$/UITM/lib/UITM.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TMObserver.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UITM.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
           <folding />
         </state>
       </provider>
