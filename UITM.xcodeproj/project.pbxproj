@@ -8,9 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1FADF5292086E8690015C269 /* UITM.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FADF5272086E8690015C269 /* UITM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FADF52F2086E8AC0015C269 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF52E2086E8AC0015C269 /* Extensions.swift */; };
-		4B0CF0AC154EE4EAA4A466FA /* Pods_UITM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */; };
+		1FADF53920873CEF0015C269 /* UITMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF53820873CEF0015C269 /* UITMTests.swift */; };
+		1FADF53B20873CEF0015C269 /* UITM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FADF5252086E8690015C269 /* UITM.framework */; };
+		1FADF54320874B200015C269 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
+		1FADF54420874B2E0015C269 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF52E2086E8AC0015C269 /* Extensions.swift */; };
+		629A3AEC4F8E9BF0FC64E0B3 /* Pods_UITMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51957DAB8D7883DD244FE53 /* Pods_UITMTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FADF53C20873CEF0015C269 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCF022D2084211B0087FAF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FADF5242086E8690015C269;
+			remoteInfo = UITM;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,8 +32,12 @@
 		1FADF5272086E8690015C269 /* UITM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITM.h; sourceTree = "<group>"; };
 		1FADF5282086E8690015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FADF52E2086E8AC0015C269 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		3188C929593557AFDB875700 /* Pods-UITM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITM/Pods-UITM.debug.xcconfig"; sourceTree = "<group>"; };
-		C7847CC8C33D0D7BD47A7E3A /* Pods-UITM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITM.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITM/Pods-UITM.release.xcconfig"; sourceTree = "<group>"; };
+		1FADF53620873CEF0015C269 /* UITMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FADF53820873CEF0015C269 /* UITMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITMTests.swift; sourceTree = "<group>"; };
+		1FADF53A20873CEF0015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51957DAB8D7883DD244FE53 /* Pods_UITMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28D717875B9741F5E220E05 /* Pods-UITMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITMTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECD5597535830CB51892614E /* Pods-UITMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITMTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,7 +45,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B0CF0AC154EE4EAA4A466FA /* Pods_UITM.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FADF53320873CEF0015C269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FADF53B20873CEF0015C269 /* UITM.framework in Frameworks */,
+				629A3AEC4F8E9BF0FC64E0B3 /* Pods_UITMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +73,23 @@
 		1FADF52D2086E8750015C269 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1FADF53720873CEF0015C269 /* UITMTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FADF54120873D1D0015C269 /* lib */,
+				1FADF53820873CEF0015C269 /* UITMTests.swift */,
+				1FADF53A20873CEF0015C269 /* Info.plist */,
+			);
+			path = UITMTests;
+			sourceTree = "<group>";
+		};
+		1FADF54120873D1D0015C269 /* lib */ = {
+			isa = PBXGroup;
+			children = (
 				1FADF52E2086E8AC0015C269 /* Extensions.swift */,
 				1FADF50D20866C840015C269 /* TMObserver.swift */,
 			);
@@ -58,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				1FADF5262086E8690015C269 /* UITM */,
+				1FADF53720873CEF0015C269 /* UITMTests */,
 				1FCF02372084211B0087FAF4 /* Products */,
 				7579210652AC6117577361C7 /* Pods */,
 				4A51F27967C8AF19956CF679 /* Frameworks */,
@@ -68,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				1FADF5252086E8690015C269 /* UITM.framework */,
+				1FADF53620873CEF0015C269 /* UITMTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */,
+				B51957DAB8D7883DD244FE53 /* Pods_UITMTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,8 +128,8 @@
 		7579210652AC6117577361C7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3188C929593557AFDB875700 /* Pods-UITM.debug.xcconfig */,
-				C7847CC8C33D0D7BD47A7E3A /* Pods-UITM.release.xcconfig */,
+				ECD5597535830CB51892614E /* Pods-UITMTests.debug.xcconfig */,
+				E28D717875B9741F5E220E05 /* Pods-UITMTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -107,12 +152,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FADF52A2086E8690015C269 /* Build configuration list for PBXNativeTarget "UITM" */;
 			buildPhases = (
-				8AD2F2BD38C1199AB19040EE /* [CP] Check Pods Manifest.lock */,
 				1FADF5202086E8690015C269 /* Sources */,
 				1FADF5212086E8690015C269 /* Frameworks */,
 				1FADF5222086E8690015C269 /* Headers */,
 				1FADF5232086E8690015C269 /* Resources */,
-				EBAC765B19C96AD039F7FB57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,6 +165,27 @@
 			productName = UITM;
 			productReference = 1FADF5252086E8690015C269 /* UITM.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		1FADF53520873CEF0015C269 /* UITMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FADF54020873CEF0015C269 /* Build configuration list for PBXNativeTarget "UITMTests" */;
+			buildPhases = (
+				DD9D98031A6D42925EBF97FA /* [CP] Check Pods Manifest.lock */,
+				1FADF53220873CEF0015C269 /* Sources */,
+				1FADF53320873CEF0015C269 /* Frameworks */,
+				1FADF53420873CEF0015C269 /* Resources */,
+				6809BC4DFDEF1DFB2DB26423 /* [CP] Embed Pods Frameworks */,
+				E56E12B2EC2D9EAB4871A643 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FADF53D20873CEF0015C269 /* PBXTargetDependency */,
+			);
+			name = UITMTests;
+			productName = UITMTests;
+			productReference = 1FADF53620873CEF0015C269 /* UITMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -136,6 +200,10 @@
 					1FADF5242086E8690015C269 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					1FADF53520873CEF0015C269 = {
+						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				1FADF5242086E8690015C269 /* UITM */,
+				1FADF53520873CEF0015C269 /* UITMTests */,
 			);
 		};
 /* End PBXProject section */
@@ -165,10 +234,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FADF53420873CEF0015C269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8AD2F2BD38C1199AB19040EE /* [CP] Check Pods Manifest.lock */ = {
+		6809BC4DFDEF1DFB2DB26423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD9D98031A6D42925EBF97FA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -179,14 +275,14 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UITM-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-UITMTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBAC765B19C96AD039F7FB57 /* [CP] Copy Pods Resources */ = {
+		E56E12B2EC2D9EAB4871A643 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITM/Pods-UITM-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -208,16 +304,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FADF52F2086E8AC0015C269 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FADF53220873CEF0015C269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FADF54320874B200015C269 /* TMObserver.swift in Sources */,
+				1FADF54420874B2E0015C269 /* Extensions.swift in Sources */,
+				1FADF53920873CEF0015C269 /* UITMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1FADF53D20873CEF0015C269 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FADF5242086E8690015C269 /* UITM */;
+			targetProxy = 1FADF53C20873CEF0015C269 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1FADF52B2086E8690015C269 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3188C929593557AFDB875700 /* Pods-UITM.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -244,7 +356,6 @@
 		};
 		1FADF52C2086E8690015C269 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7847CC8C33D0D7BD47A7E3A /* Pods-UITM.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -263,6 +374,42 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lc.UITM;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1FADF53E20873CEF0015C269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD5597535830CB51892614E /* Pods-UITMTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UITMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lc.UITMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FADF53F20873CEF0015C269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E28D717875B9741F5E220E05 /* Pods-UITMTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = UITMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lc.UITMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,6 +536,15 @@
 			buildConfigurations = (
 				1FADF52B2086E8690015C269 /* Debug */,
 				1FADF52C2086E8690015C269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FADF54020873CEF0015C269 /* Build configuration list for PBXNativeTarget "UITMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FADF53E20873CEF0015C269 /* Debug */,
+				1FADF53F20873CEF0015C269 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

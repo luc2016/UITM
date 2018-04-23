@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UITM"
-  s.version      = "0.1.6"
+  s.version      = "0.1.8"
   s.summary      = "A short description of UITM."
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "UITM/lib/*.swift", "UITM/lib/*.swift"
+  s.source_files  = "UITM/lib/*.swift", "UITMTests/lib/*.swift"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -120,7 +120,8 @@ Pod::Spec.new do |s|
 
   # s.frameworks = "SomeFramework", "AnotherFramework"
   s.frameworks  = "XCTest"
-  s.vendored_frameworks = 'Alamofire.framework'
+  #s.vendored_frameworks = 'Alamofire/Alamofire.framework'
+  #s.xcconfig  = { 'LD_RUNPATH_SEARCH_PATHS' => '/Users/lcui/Library/Developer/Xcode/DerivedData/UITM-aqcddcppboinuqchqbqfdzrufszr/Build/Products/Debug-iphonesimulator' }
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -136,7 +137,9 @@ Pod::Spec.new do |s|
 
   #s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "Alamofire"
+  s.dependency "Alamofire-Synchronous"
 
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS'=>'/Users/lcui/Library/Developer/Xcode/DerivedData/UITM-aqcddcppboinuqchqbqfdzrufszr/Build/Products/Debug-iphonesimulator/Alamofire' }
+  #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS'=>'/Users/lcui/Library/Developer/Xcode/DerivedData/UITM-aqcddcppboinuqchqbqfdzrufszr/Build/Products/Debug-iphonesimulator/Alamofire' }
 end
