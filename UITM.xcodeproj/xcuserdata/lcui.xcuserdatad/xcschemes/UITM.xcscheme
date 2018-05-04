@@ -47,6 +47,11 @@
                BlueprintName = "UITMTests"
                ReferencedContainer = "container:UITM.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DummyTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

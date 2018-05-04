@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FADF53920873CEF0015C269 /* UITMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF53820873CEF0015C269 /* UITMTests.swift */; };
+		1F1D1EFE208FB32A00497056 /* TMObserverTestsWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D1EFD208FB32A00497056 /* TMObserverTestsWithMock.swift */; };
+		1F1D1F002090CFA200497056 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D1EFF2090CFA200497056 /* ATM.swift */; };
+		1F4BB8C3209A4C6F00F3F713 /* TMObserverTestsSequential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB8C2209A4C6F00F3F713 /* TMObserverTestsSequential.swift */; };
 		1FADF54320874B200015C269 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
 		1FADF54420874B2E0015C269 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF52E2086E8AC0015C269 /* Extensions.swift */; };
 		629A3AEC4F8E9BF0FC64E0B3 /* Pods_UITMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51957DAB8D7883DD244FE53 /* Pods_UITMTests.framework */; };
@@ -15,12 +17,13 @@
 
 /* Begin PBXFileReference section */
 		18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F1D1EFD208FB32A00497056 /* TMObserverTestsWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserverTestsWithMock.swift; sourceTree = "<group>"; };
+		1F1D1EFF2090CFA200497056 /* ATM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
+		1F4BB8C2209A4C6F00F3F713 /* TMObserverTestsSequential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserverTestsSequential.swift; sourceTree = "<group>"; };
+		1F4BB8C6209CBE0E00F3F713 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
-		1FADF5272086E8690015C269 /* UITM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITM.h; sourceTree = "<group>"; };
-		1FADF5282086E8690015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FADF52E2086E8AC0015C269 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FADF53620873CEF0015C269 /* UITMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FADF53820873CEF0015C269 /* UITMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITMTests.swift; sourceTree = "<group>"; };
 		1FADF53A20873CEF0015C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51957DAB8D7883DD244FE53 /* Pods_UITMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28D717875B9741F5E220E05 /* Pods-UITMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITMTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -39,28 +42,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1FADF5262086E8690015C269 /* UITM */ = {
+		1F1D1F012090FA2F00497056 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1FADF52D2086E8750015C269 /* lib */,
-				1FADF5272086E8690015C269 /* UITM.h */,
-				1FADF5282086E8690015C269 /* Info.plist */,
+				1F1D1EFD208FB32A00497056 /* TMObserverTestsWithMock.swift */,
+				1F4BB8C2209A4C6F00F3F713 /* TMObserverTestsSequential.swift */,
 			);
-			path = UITM;
-			sourceTree = "<group>";
-		};
-		1FADF52D2086E8750015C269 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = lib;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		1FADF53720873CEF0015C269 /* UITMTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F1D1F012090FA2F00497056 /* Tests */,
 				1FADF54120873D1D0015C269 /* lib */,
-				1FADF53820873CEF0015C269 /* UITMTests.swift */,
 				1FADF53A20873CEF0015C269 /* Info.plist */,
 			);
 			path = UITMTests;
@@ -71,6 +66,8 @@
 			children = (
 				1FADF52E2086E8AC0015C269 /* Extensions.swift */,
 				1FADF50D20866C840015C269 /* TMObserver.swift */,
+				1F1D1EFF2090CFA200497056 /* ATM.swift */,
+				1F4BB8C6209CBE0E00F3F713 /* image1.png */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -78,7 +75,6 @@
 		1FCF022C2084211B0087FAF4 = {
 			isa = PBXGroup;
 			children = (
-				1FADF5262086E8690015C269 /* UITM */,
 				1FADF53720873CEF0015C269 /* UITMTests */,
 				1FCF02372084211B0087FAF4 /* Products */,
 				7579210652AC6117577361C7 /* Pods */,
@@ -186,11 +182,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
 			);
@@ -239,9 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1D1EFE208FB32A00497056 /* TMObserverTestsWithMock.swift in Sources */,
+				1F4BB8C3209A4C6F00F3F713 /* TMObserverTestsSequential.swift in Sources */,
 				1FADF54320874B200015C269 /* TMObserver.swift in Sources */,
 				1FADF54420874B2E0015C269 /* Extensions.swift in Sources */,
-				1FADF53920873CEF0015C269 /* UITMTests.swift in Sources */,
+				1F1D1F002090CFA200497056 /* ATM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

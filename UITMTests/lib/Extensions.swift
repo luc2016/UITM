@@ -9,22 +9,26 @@ import XCTest
 
 
 public struct MetaData {
-    static var testID: String = ""
+    static var testID: String?
 }
 
 public extension XCTestCase {
+    public typealias XCTestCaseClosure = (XCTestCase) throws -> Void
+    public typealias XCTestCaseEntry = (testCaseClass: XCTestCase.Type, allTests: [(String, XCTestCaseClosure)])
 
-    var metaData: String {
+    var testID: String {
 
         get {
             guard let value = objc_getAssociatedObject(self, &MetaData.testID) as? String else {
-                return "none"
+                return "N/A"
             }
             return value
         }
-        set(newValue) {
+        set {
             objc_setAssociatedObject(self, &MetaData.testID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
+
     }
 
 }
+

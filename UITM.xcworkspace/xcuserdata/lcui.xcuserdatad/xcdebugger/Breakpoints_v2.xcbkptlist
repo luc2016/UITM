@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UITMTests/lib/TMObserver.swift"
-            timestampString = "546228784.533481"
+            filePath = "UITMTests/lib/ATM.swift"
+            timestampString = "547142724.256222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "testCaseDidFinish(_:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "postTestResult(testRunKey:testCaseKey:testStatus:attachment:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

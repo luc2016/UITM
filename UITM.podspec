@@ -139,6 +139,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
   s.dependency "Alamofire"
   s.dependency "Alamofire-Synchronous"
+  s.dependency "AWSS3"
 
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS'=>'/Users/lcui/Library/Developer/Xcode/DerivedData/UITM-aqcddcppboinuqchqbqfdzrufszr/Build/Products/Debug-iphonesimulator/Alamofire' }
