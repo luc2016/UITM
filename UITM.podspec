@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "UITM/lib/*.swift", "UITMTests/lib/*.swift"
+  s.source_files  = "UITM/Sources/*.swift"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -139,7 +139,9 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
   s.dependency "Alamofire"
   s.dependency "Alamofire-Synchronous"
+  s.dependency "AWSCore"
   s.dependency "AWSS3"
+  s.dependency "AWSCognito"
 
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
   #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS'=>'/Users/lcui/Library/Developer/Xcode/DerivedData/UITM-aqcddcppboinuqchqbqfdzrufszr/Build/Products/Debug-iphonesimulator/Alamofire' }

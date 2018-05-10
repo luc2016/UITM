@@ -2,31 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cfbb273-9a42-4c6e-96b4-9793de257eb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UITMTests/lib/image1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UITMTests/Tests/TMObserverTestsSequential.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UITMTests/Tests/TMObserverTestsWithMock.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UITMTests/lib/ATM.swift" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/UITM/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/UITM/UITM.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/UITMTests/UITMTests.swift" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/AppDelegate.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/Assets.xcassets/AppIcon.appiconset/Contents.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/Assets.xcassets/Contents.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/Base.lproj/LaunchScreen.storyboard" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/Base.lproj/Main.storyboard" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/Info.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/SearchApp.xcdatamodeld/.xccurrentversion" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/SearchApp.xcdatamodeld/SearchApp.xcdatamodel/contents" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SearchApp/ViewController.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Sources/S3.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/Pods-UITMTests.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.markdown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-resources.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-umbrella.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.debug.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.release.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UITMTests/Tests/TMObserverTestsSequential.swift" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/Info.plist" afterPath="$PROJECT_DIR$/SearchAppUITests/Info.plist" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/Tests/TMObserverTestsWithMock.swift" afterPath="$PROJECT_DIR$/SearchAppUITests/TMObserverTestsWithMock.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/lib/ATM.swift" afterPath="$PROJECT_DIR$/Sources/ATM.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/lib/Extensions.swift" afterPath="$PROJECT_DIR$/Sources/Extensions.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/lib/TMObserver.swift" afterPath="$PROJECT_DIR$/Sources/TMObserver.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UITMTests/lib/image1.png" afterPath="$PROJECT_DIR$/SearchAppUITests/image.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/Pods-UITMTests.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/Pods-UITMTests.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/AWSCore.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/AWSCore.xcscheme" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-acknowledgements.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests-frameworks.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.debug.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UITMTests/Pods-UITMTests.release.xcconfig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.podspec" afterPath="$PROJECT_DIR$/UITM.podspec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/UITM.xcscheme" afterPath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/UITM.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/UITM.xcodeproj/xcuserdata/lcui.xcuserdatad/xcschemes/xcschememanagement.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcworkspace/xcuserdata/lcui.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/UITM.xcworkspace/xcuserdata/lcui.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITMTests/lib/Extensions.swift" afterPath="$PROJECT_DIR$/UITMTests/lib/Extensions.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITMTests/lib/TMObserver.swift" afterPath="$PROJECT_DIR$/UITMTests/lib/TMObserver.swift" />
     </list>
     <ignored path="ui_report.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,31 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UITM.podspec" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UITM.podspec" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UITM.podspec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="141" column="2" selection-start-line="141" selection-start-column="2" selection-end-line="141" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TMObserver.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UITMTests/lib/TMObserver.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Extensions.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UITMTests/lib/Extensions.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="95" column="37" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -90,8 +85,8 @@
       <file leaf-file-name="Breakpoints_v2.xcbkptlist" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UITM.xcworkspace/xcuserdata/lcui.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="3135">
+              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,10 +95,17 @@
       <file leaf-file-name="Podfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Podfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="image.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SearchAppUITests/image.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -111,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/Podfile.lock">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,8 +137,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Podfile" />
         <option value="$PROJECT_DIR$/UITM.podspec" />
+        <option value="$PROJECT_DIR$/Podfile" />
       </list>
     </option>
   </component>
@@ -147,8 +149,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="112" />
-    <option name="y" value="238" />
+    <option name="x" value="354" />
+    <option name="y" value="189" />
     <option name="width" value="1511" />
     <option name="height" value="681" />
   </component>
@@ -207,105 +209,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UITMTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITMTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM.xcworkspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM.xcworkspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xcuserdata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lcui.xcuserdatad" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM.xcworkspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xcuserdata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lcui.xcuserdatad" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xcdebugger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UITM.xcworkspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xcshareddata" />
+              <option name="myItemId" value="SearchAppUITests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,6 +225,9 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SearchAppUITests" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UITM/lib" />
     </key>
@@ -466,34 +373,34 @@
       <workItem from="1523988632261" duration="1172000" />
       <workItem from="1524017949345" duration="16731000" />
       <workItem from="1524486991677" duration="217000" />
-      <workItem from="1525462895523" duration="172000" />
+      <workItem from="1525462895523" duration="3105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22358000" />
+    <option name="totallyTimeSpent" value="25291000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="112" y="238" width="1511" height="681" extended-state="0" />
-    <editor active="true" />
+    <frame x="354" y="189" width="1511" height="681" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22668482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22668482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -682,15 +589,15 @@
     <entry file="file://$PROJECT_DIR$/Podfile.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UITM.xcworkspace/xcuserdata/lcui.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="3135">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -720,20 +627,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Podfile">
+    <entry file="file://$PROJECT_DIR$/UITM.podspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="194">
+          <caret line="95" column="37" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UITM.podspec">
+    <entry file="file://$PROJECT_DIR$/Podfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="141" column="2" selection-start-line="141" selection-start-column="2" selection-end-line="141" selection-end-column="2" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SearchAppUITests/image1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SearchAppUITests/image.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>

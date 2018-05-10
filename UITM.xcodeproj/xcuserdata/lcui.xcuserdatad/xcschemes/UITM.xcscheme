@@ -53,6 +53,16 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F461EDA20A33A21003E1747"
+               BuildableName = "SearchAppUITests.xctest"
+               BlueprintName = "SearchAppUITests"
+               ReferencedContainer = "container:UITM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
