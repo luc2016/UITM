@@ -13,12 +13,14 @@ class TestObserver: TMObserver {
     var testStatus :Bool?
     var testName : String?
     var testCaseKey : String?
+    var testComments : String?
 
     override func testCaseDidFinish(_ testCase: XCTestCase) {
         super.testCaseDidFinish(testCase)
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
         testCaseKey = testCase.testID
+        testComments = testCase.testComments
     }
 
 }
@@ -49,7 +51,7 @@ class DummyTests: XCTestCaseMock {
     
     override func setUp() {
         super.setUp()
-        XCUIApplication(bundleIdentifier: "lc.SearchApp").launch()
+        XCUIApplication().launch()
     }
 
 
@@ -65,7 +67,7 @@ class DummyTests: XCTestCaseMock {
 
 }
 
-class TMObserverTestsMock: XCTestCase {
+class TMObserverTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -99,6 +101,7 @@ class TMObserverTestsMock: XCTestCase {
         XCTAssert(observer.testName == "-[DummyTests test2]", "TestName is incorrect!")
         XCTAssert(observer.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
         XCTAssert(observer.testStatus == false, "Test status is incorrect!")
+//        XCTAssert(observer.testComments == false, "Test status is incorrect!")
     }
 
 }

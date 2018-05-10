@@ -14,7 +14,7 @@ import AWSS3
 class ATM {
     let baseURL = "https://jira.lblw.ca/rest/atm/1.0"
     
-    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: Bool, environment: String, comments:String, exedutionTime: Int){
+    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: Bool, environment: String, comments:String, exedutionTime: Int) -> Bool{
         
         let headers = ["authorization": "Basic RmVycmlzOmZlcnJpcw=="]
         let status = testStatus ? "Pass" : "Fail"
@@ -31,6 +31,7 @@ class ATM {
         let response = Alamofire.request("https://jira.lblw.ca/rest/atm/1.0/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
         
         print(response)
+        return response.result.isSuccess
     }
     
 }

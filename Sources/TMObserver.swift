@@ -27,12 +27,12 @@ public class TMObserver: NSObject, XCTestObservation {
     //hook for failed test case
     public func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
         print("test case failed")
-        let imageName = takeScreenShot()
-        let s3address = S3.uploadImage(bucketName: "uitm2", imageName: imageName)
+        let imageURL = takeScreenShot()
+        let s3address = S3.uploadImage(bucketName: "uitm2", imageURL: imageURL)
         testCase.testComments = "<br>\(description)<br/><img src='\(s3address)'>"
     }
     
-    private func takeScreenShot() -> String {
+    private func takeScreenShot() -> URL {
         let screenShot: XCUIScreenshot = XCUIScreen.main.screenshot()
         let myImage = screenShot.pngRepresentation
         let fileName = ProcessInfo.processInfo.globallyUniqueString + ".png"
@@ -42,7 +42,7 @@ public class TMObserver: NSObject, XCTestObservation {
         } catch {
             XCTAssert(false, "Was not able to save screen capture!")
         }
-        return fileName
+        return fileURL
     }
 
 }
