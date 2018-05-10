@@ -19,11 +19,8 @@ public class S3 {
         authenticate(identityPoolId: "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd", regionType: .USEast1)
 
         let uploadRequest = AWSS3TransferManagerUploadRequest()!
-//        let imageURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
-//        let imageName = imageURL.path.sub
         var imageS3Address = ""
-        
-        let imageName = "name"
+        let imageName = imageURL.path.replacingOccurrences(of: "(.*)/", with: "", options: .regularExpression, range:nil)
         uploadRequest.bucket = bucketName
         uploadRequest.key = imageName
         uploadRequest.body = imageURL

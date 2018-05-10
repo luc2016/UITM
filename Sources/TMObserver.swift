@@ -12,6 +12,8 @@ import XCTest
 public class TMObserver: NSObject, XCTestObservation {
 
     public static var shared = TMObserver()
+    let testRunKey =  ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+
 
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case Finished")

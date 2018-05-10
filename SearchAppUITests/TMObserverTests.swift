@@ -16,11 +16,16 @@ class TestObserver: TMObserver {
     var testComments : String?
 
     override func testCaseDidFinish(_ testCase: XCTestCase) {
-        super.testCaseDidFinish(testCase)
+//        super.testCaseDidFinish(testCase)
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
         testCaseKey = testCase.testID
         testComments = testCase.testComments
+    }
+    
+    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
+        print("test case failed")
+        testCase.testComments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
     }
 
 }
@@ -45,7 +50,6 @@ public class XCTestCaseMock : XCTestCase{
 }
 
 let observer = TestObserver()
-let testRunKey = "GOLM-R13"
 
 class DummyTests: XCTestCaseMock {
     
@@ -57,6 +61,7 @@ class DummyTests: XCTestCaseMock {
 
     func test1()  {
         self.testID = "GOLM-T1"
+        self.testComments = "This is a dummy test 1"
         (self.testRun as! XCTestCaseRunMock).hasSucceeded = true
     }
 
@@ -89,19 +94,21 @@ class TMObserverTests: XCTestCase {
         XCTAssert(observer.testName == "-[DummyTests test1]", "TestName is incorrect!")
         XCTAssert(observer.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
         XCTAssert(observer.testStatus == true, "Test status is incorrect!")
+        XCTAssert(observer.testComments!.starts(with: "This is a dummy test 1"), "Test comment is incorrect!")
     }
 
-//    // Test Meta data of a failed test
+    // Test Meta data of a failed test
     func testFailedTestCase() {
         let testcase = DummyTests.init(selector:#selector(DummyTests.test2))
+        let failMessage = "Test page is not loaded properly"
         testcase.invokeTest()
-        observer.testCase(testcase, didFailWithDescription: "Test page is not loaded properly",inFile: nil, atLine: 0)
+        observer.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
         observer.testCaseDidFinish(testcase)
         
         XCTAssert(observer.testName == "-[DummyTests test2]", "TestName is incorrect!")
         XCTAssert(observer.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
         XCTAssert(observer.testStatus == false, "Test status is incorrect!")
-//        XCTAssert(observer.testComments == false, "Test status is incorrect!")
+        XCTAssert(observer.testComments!.starts(with: "<br>Test page is not loaded properly<br/>"), "Test comment is incorrect!")
     }
 
 }
