@@ -16,7 +16,7 @@ class TestObserver: TMObserver {
     var testComments : String?
 
     override func testCaseDidFinish(_ testCase: XCTestCase) {
-//        super.testCaseDidFinish(testCase)
+        super.testCaseDidFinish(testCase)
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
         testCaseKey = testCase.testID

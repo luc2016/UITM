@@ -12,23 +12,29 @@ import Alamofire_Synchronous
 import AWSS3
 
 class ATM {
-    let baseURL = "https://jira.lblw.ca/rest/atm/1.0"
+    static let baseURL =  ProcessInfo.processInfo.environment["ATM_BASE_URL"] ?? "https://jira.lblw.ca/rest/atm/1.0"
     
-    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: Bool, environment: String, comments:String, exedutionTime: Int) -> Bool{
+    enum TestStatus : String {
+        case pass = "Pass"
+        case fail = "Fail"
+        case inProgress = "In Progress"
+        case blocked = "Blocked"
+        case notExecuted = "Not Executed"
+    }
+
+    
+    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: TestStatus, environment: String, comments:String, exedutionTime: Int) -> Bool{
         
         let headers = ["authorization": "Basic RmVycmlzOmZlcnJpcw=="]
-        let status = testStatus ? "Pass" : "Fail"
-
 
         let entries = [
-            "status"        : status,
+            "status"        : testStatus.rawValue,
             "environment"   : environment,
             "comment"       : comments,
             "executionTime": exedutionTime
             ] as [String : Any]
         
-        
-        let response = Alamofire.request("https://jira.lblw.ca/rest/atm/1.0/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
+        let response = Alamofire.request("\(baseURL)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
         
         print(response)
         return response.result.isSuccess

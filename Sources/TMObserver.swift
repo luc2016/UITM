@@ -17,13 +17,13 @@ public class TMObserver: NSObject, XCTestObservation {
 
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case Finished")
-        let testStatus = testCase.testRun?.hasSucceeded
+        let testStatus = (testCase.testRun?.hasSucceeded)! ? ATM.TestStatus.pass : ATM.TestStatus.fail
         let testName = testCase.name
         let testCaseKey = testCase.testID
         let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
         
         //post test results to ATM
-        ATM.postTestResult(testRunKey: testRunKey, testCaseKey: testCaseKey, testStatus: testStatus!,environment: "Mobile iOS", comments: testCase.testComments, exedutionTime: testDuration)
+        ATM.postTestResult(testRunKey: testRunKey, testCaseKey: testCaseKey, testStatus: testStatus, environment: "Mobile iOS", comments: testCase.testComments, exedutionTime: testDuration)
     }
     
     //hook for failed test case
