@@ -8,6 +8,19 @@
 
 import XCTest
 
+
+//let testRunKey =  ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+
+let st = UITM.config(
+    ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
+    ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
+    ATMCustomStatus:[],
+    S3CogitoKey:    "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
+    S3RegionType:   .USEast1,
+    S3BucketName:   "uitm2",
+    testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+)
+
 class TestObserver: TMObserver {
 
     var testStatus :Bool?
@@ -72,7 +85,10 @@ class DummyTests: XCTestCaseMock {
 
 }
 
+
+
 class TMObserverTests: XCTestCase {
+    
 
     override func setUp() {
         super.setUp()

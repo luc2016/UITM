@@ -12,8 +12,13 @@ import XCTest
 public class TMObserver: NSObject, XCTestObservation {
 
     public static var shared = TMObserver()
-    let testRunKey =  ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+    
+    // hoook for any pre-test setup
+    public func testBundleWillStart(_ testBundle: Bundle){
+        //authtnticate using aws cognito
+        S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
 
+    }
 
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case Finished")
@@ -23,14 +28,14 @@ public class TMObserver: NSObject, XCTestObservation {
         let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
         
         //post test results to ATM
-        ATM.postTestResult(testRunKey: testRunKey, testCaseKey: testCaseKey, testStatus: testStatus, environment: "Mobile iOS", comments: testCase.testComments, exedutionTime: testDuration)
+        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCaseKey, testStatus: testStatus, environment: "Mobile iOS", comments: testCase.testComments, exedutionTime: testDuration)
     }
     
     //hook for failed test case
     public func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
         print("test case failed")
         let imageURL = takeScreenShot()
-        let s3address = S3.uploadImage(bucketName: "uitm2", imageURL: imageURL)
+        let s3address = S3.uploadImage(bucketName: UITM.S3BuecktName!, imageURL: imageURL)
         testCase.testComments = "<br>\(description)<br/><img src='\(s3address)'>"
     }
     

@@ -17,7 +17,12 @@
 		1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
 		1F461EED20A37BF6003E1747 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D1EFF2090CFA200497056 /* ATM.swift */; };
 		1F461EEE20A37BF9003E1747 /* S3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB8C7209E4DAC00F3F713 /* S3.swift */; };
-		1F461EEF20A37BFC003E1747 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF52E2086E8AC0015C269 /* Extensions.swift */; };
+		1FBD219E20A91031000EFEC9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219C20A90970000EFEC9 /* Config.swift */; };
+		1FBD21A020A91576000EFEC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219F20A91576000EFEC9 /* App.swift */; };
+		1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219A20A90968000EFEC9 /* Extensions.swift */; };
+		1FBD21A220A9D482000EFEC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219F20A91576000EFEC9 /* App.swift */; };
+		1FBD21A420A9D5D9000EFEC9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD21A320A9D5D9000EFEC9 /* Test.swift */; };
+		1FBD21A520A9D81E000EFEC9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219C20A90970000EFEC9 /* Config.swift */; };
 		6B6B3E4268466188EFF57620 /* Pods_SearchAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F0CE866D9FB3B86403E705 /* Pods_SearchAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +52,10 @@
 		1F461EE120A33A21003E1747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F4BB8C7209E4DAC00F3F713 /* S3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3.swift; sourceTree = "<group>"; };
 		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
-		1FADF52E2086E8AC0015C269 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1FBD219A20A90968000EFEC9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1FBD219C20A90970000EFEC9 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		1FBD219F20A91576000EFEC9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		1FBD21A320A9D5D9000EFEC9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		5F94C34D3EDEE67BE522BB82 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F0CE866D9FB3B86403E705 /* Pods_SearchAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C091CCC9B19D101A6AE2381 /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +89,9 @@
 		1F461EB520A3374C003E1747 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1FADF52E2086E8AC0015C269 /* Extensions.swift */,
 				1FADF50D20866C840015C269 /* TMObserver.swift */,
+				1FBD219C20A90970000EFEC9 /* Config.swift */,
+				1FBD219A20A90968000EFEC9 /* Extensions.swift */,
 				1F1D1EFF2090CFA200497056 /* ATM.swift */,
 				1F4BB8C7209E4DAC00F3F713 /* S3.swift */,
 			);
@@ -106,8 +115,10 @@
 		1F461EDE20A33A21003E1747 /* SearchAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1FBD21A320A9D5D9000EFEC9 /* Test.swift */,
 				1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */,
 				1F461EE120A33A21003E1747 /* Info.plist */,
+				1FBD219F20A91576000EFEC9 /* App.swift */,
 			);
 			path = SearchAppUITests;
 			sourceTree = "<group>";
@@ -326,6 +337,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F461EBF20A33A1F003E1747 /* ViewController.swift in Sources */,
+				1FBD21A220A9D482000EFEC9 /* App.swift in Sources */,
+				1FBD21A520A9D81E000EFEC9 /* Config.swift in Sources */,
 				1F461EBD20A33A1F003E1747 /* AppDelegate.swift in Sources */,
 				1F461EC520A33A1F003E1747 /* SearchApp.xcdatamodeld in Sources */,
 			);
@@ -335,11 +348,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FBD21A020A91576000EFEC9 /* App.swift in Sources */,
 				1F461EEB20A37B00003E1747 /* TMObserverTests.swift in Sources */,
-				1F461EEF20A37BFC003E1747 /* Extensions.swift in Sources */,
 				1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */,
+				1FBD219E20A91031000EFEC9 /* Config.swift in Sources */,
 				1F461EED20A37BF6003E1747 /* ATM.swift in Sources */,
+				1FBD21A420A9D5D9000EFEC9 /* Test.swift in Sources */,
 				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
+				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

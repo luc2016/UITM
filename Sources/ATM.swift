@@ -12,8 +12,7 @@ import Alamofire_Synchronous
 import AWSS3
 
 class ATM {
-    static let baseURL =  ProcessInfo.processInfo.environment["ATM_BASE_URL"] ?? "https://jira.lblw.ca/rest/atm/1.0"
-    
+
     enum TestStatus : String {
         case pass = "Pass"
         case fail = "Fail"
@@ -23,9 +22,9 @@ class ATM {
     }
 
     
-    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: TestStatus, environment: String, comments:String, exedutionTime: Int) -> Bool{
+    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: TestStatus, environment: String, comments:String, exedutionTime: Int) {
         
-        let headers = ["authorization": "Basic RmVycmlzOmZlcnJpcw=="]
+        let headers = ["authorization": UITM.ATMCredentials]
 
         let entries = [
             "status"        : testStatus.rawValue,
@@ -34,10 +33,8 @@ class ATM {
             "executionTime": exedutionTime
             ] as [String : Any]
         
-        let response = Alamofire.request("\(baseURL)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
+        let response = Alamofire.request("\(UITM.ATMBaseURL)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
         
-        print(response)
-        return response.result.isSuccess
     }
     
 }
