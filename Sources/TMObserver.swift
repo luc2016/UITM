@@ -11,14 +11,14 @@ import XCTest
 
 public class TMObserver: NSObject, XCTestObservation {
 
-    public static var shared = TMObserver()
+//    public class var shared = TMObserver()
     
-    // hoook for any pre-test setup
-    public func testBundleWillStart(_ testBundle: Bundle){
-        //authtnticate using aws cognito
-        S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
-
-    }
+    // hoook for pre-test setup
+//    public func testBundleWillStart(_ testBundle: Bundle){
+//        //authtnticate using aws cognito
+//        S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
+//
+//    }
 
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case Finished")

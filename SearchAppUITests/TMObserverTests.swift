@@ -8,20 +8,9 @@
 
 import XCTest
 
-
-//let testRunKey =  ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
-
-let st = UITM.config(
-    ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
-    ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
-    ATMCustomStatus:[],
-    S3CogitoKey:    "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
-    S3RegionType:   .USEast1,
-    S3BucketName:   "uitm2",
-    testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
-)
-
 class TestObserver: TMObserver {
+    
+    public static var shared = TestObserver()
 
     var testStatus :Bool?
     var testName : String?
@@ -29,7 +18,7 @@ class TestObserver: TMObserver {
     var testComments : String?
 
     override func testCaseDidFinish(_ testCase: XCTestCase) {
-        super.testCaseDidFinish(testCase)
+//        super.testCaseDidFinish(testCase)
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
         testCaseKey = testCase.testID
@@ -62,7 +51,6 @@ public class XCTestCaseMock : XCTestCase{
     }
 }
 
-let observer = TestObserver()
 
 class DummyTests: XCTestCaseMock {
     
@@ -86,31 +74,18 @@ class DummyTests: XCTestCaseMock {
 }
 
 
-
 class TMObserverTests: XCTestCase {
-    
-
-    override func setUp() {
-        super.setUp()
-        XCTestObservationCenter.shared.addTestObserver(observer)
-    }
-
-    override func tearDown() {
-        super.tearDown()
-        XCTestObservationCenter.shared.removeTestObserver(observer)
-    }
-
 
     // Test Meta data of a succeeded test
     func testSuccessedTestCase() {
         let testcase = DummyTests.init(selector:#selector(DummyTests.test1))
         testcase.invokeTest()
-        observer.testCaseDidFinish(testcase)
+        TestObserver.shared.testCaseDidFinish(testcase)
 
-        XCTAssert(observer.testName == "-[DummyTests test1]", "TestName is incorrect!")
-        XCTAssert(observer.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
-        XCTAssert(observer.testStatus == true, "Test status is incorrect!")
-        XCTAssert(observer.testComments!.starts(with: "This is a dummy test 1"), "Test comment is incorrect!")
+        XCTAssert(TestObserver.shared.testName == "-[DummyTests test1]", "TestName is incorrect!")
+        XCTAssert(TestObserver.shared.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
+        XCTAssert(TestObserver.shared.testStatus == true, "Test status is incorrect!")
+        XCTAssert(TestObserver.shared.testComments!.starts(with: "This is a dummy test 1"), "Test comment is incorrect!")
     }
 
     // Test Meta data of a failed test
@@ -118,13 +93,13 @@ class TMObserverTests: XCTestCase {
         let testcase = DummyTests.init(selector:#selector(DummyTests.test2))
         let failMessage = "Test page is not loaded properly"
         testcase.invokeTest()
-        observer.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
-        observer.testCaseDidFinish(testcase)
+        TestObserver.shared.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
+        TestObserver.shared.testCaseDidFinish(testcase)
         
-        XCTAssert(observer.testName == "-[DummyTests test2]", "TestName is incorrect!")
-        XCTAssert(observer.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
-        XCTAssert(observer.testStatus == false, "Test status is incorrect!")
-        XCTAssert(observer.testComments!.starts(with: "<br>Test page is not loaded properly<br/>"), "Test comment is incorrect!")
+        XCTAssert(TestObserver.shared.testName == "-[DummyTests test2]", "TestName is incorrect!")
+        XCTAssert(TestObserver.shared.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
+        XCTAssert(TestObserver.shared.testStatus == false, "Test status is incorrect!")
+        XCTAssert(TestObserver.shared.testComments!.starts(with: "<br>Test page is not loaded properly<br/>"), "Test comment is incorrect!")
     }
 
 }

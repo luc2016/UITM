@@ -9,8 +9,8 @@ import Foundation
 import AWSS3
 import AWSCognito
 
-class UITM {
-    
+public class UITM {
+
     static var ATMBaseURL: String = "https://jira.lblw.ca/rest/atm/1.0"
     static var ATMCredentials:String = "Basic RmVycmlzOmZlcnJpcw=="
     static var ATMCustomStatus: [String] = []
@@ -19,13 +19,9 @@ class UITM {
     static var S3BuecktName: String?
     static var testRunKey: String?
 
-    
-    class func config(ATMBaseURL:String?, ATMCredential: String, ATMCustomStatus: [String] = [], S3CogitoKey: String, S3RegionType:AWSRegionType, S3BucketName: String, testRunKey: String) -> Bool{
-        
-        //authtnticate to S3 using aws cognito
-        S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
 
-        
+    class func config(ATMBaseURL:String?, ATMCredential: String, ATMCustomStatus: [String] = [], S3CognitoKey: String, S3RegionType:AWSRegionType, S3BucketName: String, testRunKey: String) {
+
         UITM.ATMBaseURL = ATMBaseURL!
         UITM.ATMCredentials = ATMCredentials
         UITM.ATMCustomStatus = ATMCustomStatus
@@ -33,6 +29,10 @@ class UITM {
         UITM.S3RegionType = S3RegionType
         UITM.S3BuecktName = S3BucketName
         UITM.testRunKey = testRunKey
-        return true
+        
+        //authtnticate to S3 using aws cognito
+        S3.authenticate(identityPoolId: S3CognitoKey, regionType: S3RegionType)
+
     }
+
 }
