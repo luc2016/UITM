@@ -21,14 +21,14 @@ class TestObserver: TMObserver {
 //        super.testCaseDidFinish(testCase)
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
-        testCaseKey = testCase.testID
-        testComments = testCase.testComments
+        testCaseKey = testCase.metaData.testID
+        testComments = testCase.metaData.testComments
     }
     
-    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
-        print("test case failed")
-        testCase.testComments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
-    }
+//    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
+//        print("test case failed")
+//        testCase.testComments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
+//    }
 
 }
 
@@ -61,13 +61,13 @@ class DummyTests: XCTestCaseMock {
 
 
     func test1()  {
-        self.testID = "GOLM-T1"
-        self.testComments = "This is a dummy test 1"
+        self.metaData.testComments = "This is a dummy test 1"
+        self.metaData.testID = "GOLM-T1"
         (self.testRun as! XCTestCaseRunMock).hasSucceeded = true
     }
 
     func test2()  {
-        self.testID = "GOLM-T2"
+        self.metaData.testID = "GOLM-T2"
         (self.testRun as! XCTestCaseRunMock).hasSucceeded = false
     }
 

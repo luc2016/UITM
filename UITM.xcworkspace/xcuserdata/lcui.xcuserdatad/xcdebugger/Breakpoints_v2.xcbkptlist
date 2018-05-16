@@ -185,22 +185,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sources/ATM.swift"
-            timestampString = "548000848.5864871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "postTestResult(testRunKey:testCaseKey:testStatus:environment:comments:exedutionTime:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SearchAppUITests/main.swift"
             timestampString = "548000624.291544"
             startingColumnNumber = "9223372036854775807"
@@ -217,13 +201,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sources/TMObserver.swift"
-            timestampString = "548022431.346295"
+            filePath = "Sources/Config.swift"
+            timestampString = "548006084.834337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "testCaseDidFinish(_:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "config(ATMBaseURL:ATMCredential:ATMCustomStatus:S3CogitoKey:S3RegionType:S3BucketName:testRunKey:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -233,13 +217,139 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sources/Config.swift"
-            timestampString = "548006084.834337"
+            filePath = "SearchAppUITests/TMObserverTests.swift"
+            timestampString = "548127126.784372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "config(ATMBaseURL:ATMCredential:ATMCustomStatus:S3CogitoKey:S3RegionType:S3BucketName:testRunKey:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "testSuccessedTestCase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SearchAppUITests.TMObserverTests.testSuccessedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.339242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "302">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #3 : @autoclosure () throws -&gt; Swift.Bool in SearchAppUITests.TMObserverTests.testSuccessedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.342569"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #4 : @autoclosure () -&gt; Swift.String in SearchAppUITests.TMObserverTests.testSuccessedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.345456"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchAppUITests/TMObserverTests.swift"
+            timestampString = "548127126.784837"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "testFailedTestCase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SearchAppUITests.TMObserverTests.testFailedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.3561389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #3 : @autoclosure () throws -&gt; Swift.Bool in SearchAppUITests.TMObserverTests.testFailedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.359413"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #4 : @autoclosure () -&gt; Swift.String in SearchAppUITests.TMObserverTests.testFailedTestCase() -&gt; ()"
+                  moduleName = "SearchAppUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
+                  timestampString = "548127128.362312"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/TMObserver.swift"
+            timestampString = "548127126.785154"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "testCaseDidFinish(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

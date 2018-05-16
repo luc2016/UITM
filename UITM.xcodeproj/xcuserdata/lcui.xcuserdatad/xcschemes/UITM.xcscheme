@@ -55,8 +55,8 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "ATM_BASE_URL"
-            value = "https://jira.lblw.ca/rest/atm/1.0"
+            key = "ATM_ENV"
+            value = "Mobile iOS"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

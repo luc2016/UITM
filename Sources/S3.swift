@@ -15,7 +15,6 @@ public class S3 {
     
     public static func uploadImage(bucketName:String, imageURL: URL) -> String {
 
-
         let uploadRequest = AWSS3TransferManagerUploadRequest()!
         var imageS3Address = ""
         let imageName = imageURL.path.replacingOccurrences(of: "(.*)/", with: "", options: .regularExpression, range:nil)

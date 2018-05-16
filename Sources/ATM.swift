@@ -13,28 +13,23 @@ import AWSS3
 
 class ATM {
 
-    enum TestStatus : String {
-        case pass = "Pass"
-        case fail = "Fail"
-        case inProgress = "In Progress"
-        case blocked = "Blocked"
-        case notExecuted = "Not Executed"
-    }
-
+    static var status : [String] = {
+        return   ["Pass","Fail","In Progress","Blocked","Not Executed"] + UITM.ATMCustomStatus!
+    }()
     
-    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: TestStatus, environment: String, comments:String, exedutionTime: Int) {
+    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
         
-        let headers = ["authorization": UITM.ATMCredentials]
+        let headers = ["authorization": UITM.ATMCredential!]
 
         let entries = [
-            "status"        : testStatus.rawValue,
+            "status"        : testStatus,
             "environment"   : environment,
             "comment"       : comments,
             "executionTime": exedutionTime
             ] as [String : Any]
         
-        let response = Alamofire.request("\(UITM.ATMBaseURL)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers:headers).validate().responseJSON()
-        
+        let response = Alamofire.request("\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers)
+
     }
     
 }

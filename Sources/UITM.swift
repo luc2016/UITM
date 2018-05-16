@@ -11,28 +11,33 @@ import AWSCognito
 
 public class UITM {
 
-    static var ATMBaseURL: String = "https://jira.lblw.ca/rest/atm/1.0"
-    static var ATMCredentials:String = "Basic RmVycmlzOmZlcnJpcw=="
-    static var ATMCustomStatus: [String] = []
+    static var ATMBaseURL: String?
+    static var ATMCredential:String?
+    static var ATMCustomStatus: [String]?
+    static var ATMENV: String?
     static var S3CognitoKey: String?
     static var S3RegionType: AWSRegionType?
     static var S3BuecktName: String?
     static var testRunKey: String?
 
+    class func config(
+            testRunKey: String,
+            ATMBaseURL:String = "https://jira.lblw.ca/rest/atm/1.0",
+            ATMCredential: String,
+            ATMCustomStatus: [String] = [],
+            ATMENV:String?,
+            S3CognitoKey: String,
+            S3RegionType:AWSRegionType,
+            S3BucketName: String) {
 
-    class func config(ATMBaseURL:String?, ATMCredential: String, ATMCustomStatus: [String] = [], S3CognitoKey: String, S3RegionType:AWSRegionType, S3BucketName: String, testRunKey: String) {
-
-        UITM.ATMBaseURL = ATMBaseURL!
-        UITM.ATMCredentials = ATMCredentials
+        UITM.testRunKey = testRunKey
+        UITM.ATMBaseURL = ATMBaseURL
+        UITM.ATMCredential = ATMCredential
+        UITM.ATMENV = ATMENV
         UITM.ATMCustomStatus = ATMCustomStatus
         UITM.S3CognitoKey = S3CognitoKey
         UITM.S3RegionType = S3RegionType
         UITM.S3BuecktName = S3BucketName
-        UITM.testRunKey = testRunKey
-        
-        //authtnticate to S3 using aws cognito
-        S3.authenticate(identityPoolId: S3CognitoKey, regionType: S3RegionType)
-
+                
     }
-
 }

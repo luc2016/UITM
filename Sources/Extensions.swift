@@ -8,33 +8,23 @@
 import XCTest
 
 public struct MetaData {
-    static var testID: String?
-    static var testComments: String?
+    static var shared = MetaData()
+    var testID: String?
+    var testComments: String?
+    var testStatus: String?
 }
 
 public extension XCTestCase {
-
-    var testID: String {
-        get {
-            guard let value = objc_getAssociatedObject(self, &MetaData.testID) as? String else {
-                return "N/A"
-            }
-            return value
-        }
-        set {
-            objc_setAssociatedObject(self, &MetaData.testID, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
     
-    var testComments: String {
+    var metaData: MetaData {
         get {
-            guard let value = objc_getAssociatedObject(self, &MetaData.testComments) as? String else {
-                return "N/A"
+            guard let value = objc_getAssociatedObject(self, &MetaData.shared) as? MetaData else {
+                return MetaData.shared
             }
             return value
         }
         set {
-            objc_setAssociatedObject(self, &MetaData.testComments, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &MetaData.shared, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 

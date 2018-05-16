@@ -9,20 +9,18 @@
 import Foundation
 import XCTest
 
- let observer = TestObserver()
-
 class SetUp : NSObject {
     override init() {
         UITM.config(
+            testRunKey: ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!,
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
-            ATMCustomStatus:[],
+            ATMENV:         ProcessInfo.processInfo.environment["ATM_ENV"]!,
             S3CognitoKey:    "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
             S3RegionType:   .USEast1,
-            S3BucketName:   "uitm2",
-            testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+            S3BucketName:   "uitm2"
         )
-
+        
         XCTestObservationCenter.shared.addTestObserver(TestObserver.shared)
     }
 
