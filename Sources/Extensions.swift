@@ -9,14 +9,14 @@ import XCTest
 
 public struct MetaData {
     static var shared = MetaData()
-    var testID: String?
-    var testComments: String?
-    var testStatus: String?
+    public var testID: String?
+    public var testComments: String?
+    public var testStatus: String?
 }
 
 public extension XCTestCase {
     
-    var metaData: MetaData {
+    public var metaData: MetaData {
         get {
             guard let value = objc_getAssociatedObject(self, &MetaData.shared) as? MetaData else {
                 return MetaData.shared
