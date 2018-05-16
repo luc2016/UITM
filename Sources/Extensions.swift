@@ -9,9 +9,10 @@ import XCTest
 
 public struct MetaData {
     static var shared = MetaData()
+    
     public var testID: String?
-    var testComments: String = ""
-    public var testStatus: String?
+    public var comments: String = ""
+    var failureMessage: String = ""
 }
 
 public extension XCTestCase {

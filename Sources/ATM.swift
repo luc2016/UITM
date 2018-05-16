@@ -13,10 +13,6 @@ import AWSS3
 
 class ATM {
 
-    static var status : [String] = {
-        return   ["Pass","Fail","In Progress","Blocked","Not Executed"] + UITM.ATMCustomStatus!
-    }()
-    
     static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
         
         let headers = ["authorization": UITM.ATMCredential!]
@@ -28,8 +24,14 @@ class ATM {
             "executionTime": exedutionTime
             ] as [String : Any]
         
-        let response = Alamofire.request("\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers)
+        let response = Alamofire.request("\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
 
+        if let error = response.error {
+            print("Failed with error: \(error)")
+            fatalError("ATM uploading failed with error: \(error)")
+        }else{
+            print("Uploaded test result successfully")
+        }
     }
     
 }

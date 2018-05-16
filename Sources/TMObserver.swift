@@ -22,12 +22,12 @@ public class TMObserver: NSObject, XCTestObservation {
     //hook for test finished
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case Finished")
-        let runResult =  (testCase.testRun?.hasSucceeded)! ? ATM.status[0] : ATM.status[1]
-        let testStatus = testCase.metaData.testStatus ?? runResult
-        let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
+        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
+        let testDuration = Int(testCase.testRun?.testDuration as! Double * 10000)
+        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
         //post test results to ATM
-        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV, comments: testCase.metaData.testComments, exedutionTime: testDuration)
+        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
     }
     
     //hook for failed test case
@@ -35,7 +35,7 @@ public class TMObserver: NSObject, XCTestObservation {
         print("test case failed")
         let imageURL = takeScreenShot()
         let s3address = S3.uploadImage(bucketName: UITM.S3BuecktName!, imageURL: imageURL)
-        testCase.metaData.testComments = "<br>\(description)<br/><img src='\(s3address)'>"
+        testCase.metaData.failureMessage = "<br>\(description)<br/><img src='\(s3address)'>"
     }
     
 }

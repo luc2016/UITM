@@ -29,6 +29,7 @@ public class S3 {
 
                     if let error = task.error {
                         print(error)
+                        fatalError("S3 uploading failed with error: \(error)")
                     }
                     
                     if task.result != nil {

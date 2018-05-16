@@ -22,7 +22,7 @@ class TestObserver: TMObserver {
         testStatus = testCase.testRun?.hasSucceeded
         testName = testCase.name
         testCaseKey = testCase.metaData.testID
-        testComments = testCase.metaData.testComments
+        testComments = testCase.metaData.comments
     }
     
 //    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
@@ -61,7 +61,7 @@ class DummyTests: XCTestCaseMock {
 
 
     func test1()  {
-        self.metaData.testComments = "This is a dummy test 1"
+        self.metaData.comments = "This is a dummy test 1"
         self.metaData.testID = "GOLM-T1"
         (self.testRun as! XCTestCaseRunMock).hasSucceeded = true
     }
@@ -81,7 +81,7 @@ class TMObserverTests: XCTestCase {
         
         let testcase = DummyTests.init(selector:#selector(DummyTests.test1))
         testcase.invokeTest()
-        TestObserver.shared.testCaseDidFinish(testcase)
+        TestObserver.shared2.testCaseDidFinish(testcase)
  
         XCTAssert(TestObserver.shared2.testName == "-[DummyTests test1]", "TestName is incorrect!")
         XCTAssert(TestObserver.shared2.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
