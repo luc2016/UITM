@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 
+<<<<<<< HEAD
 class SetUp : NSObject {
     override init() {
         UITM.config(
@@ -22,6 +23,23 @@ class SetUp : NSObject {
         )
         
         XCTestObservationCenter.shared.addTestObserver(TestObserver.shared2)
+=======
+ let observer = TestObserver()
+
+class SetUp : NSObject {
+    override init() {
+        UITM.config(
+            ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
+            ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
+            ATMCustomStatus:[],
+            S3CognitoKey:    "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
+            S3RegionType:   .USEast1,
+            S3BucketName:   "uitm2",
+            testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!
+        )
+
+        XCTestObservationCenter.shared.addTestObserver(TestObserver.shared)
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
     }
 
 }

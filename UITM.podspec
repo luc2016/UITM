@@ -16,7 +16,11 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UITM"
+<<<<<<< HEAD
   s.version      = "0.2.2"
+=======
+  s.version      = "0.2.0"
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
   s.summary      = "A short description of UITM."
 
   # This description is used to generate tags and improve search results.

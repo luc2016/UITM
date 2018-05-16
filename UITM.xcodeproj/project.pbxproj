@@ -21,7 +21,11 @@
 		1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219C20A90970000EFEC9 /* UITM.swift */; };
 		1FBD21A020A91576000EFEC9 /* SetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219F20A91576000EFEC9 /* SetUp.swift */; };
 		1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219A20A90968000EFEC9 /* Extensions.swift */; };
+<<<<<<< HEAD
 		1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD945920AB6E81004C5F16 /* Helper.swift */; };
+=======
+		1FBD21A420A9D5D9000EFEC9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD21A320A9D5D9000EFEC9 /* Test.swift */; };
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
 		6B6B3E4268466188EFF57620 /* Pods_SearchAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F0CE866D9FB3B86403E705 /* Pods_SearchAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +59,11 @@
 		1FBD219A20A90968000EFEC9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FBD219C20A90970000EFEC9 /* UITM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
 		1FBD219F20A91576000EFEC9 /* SetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUp.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		1FFD945920AB6E81004C5F16 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+=======
+		1FBD21A320A9D5D9000EFEC9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
 		5F94C34D3EDEE67BE522BB82 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F0CE866D9FB3B86403E705 /* Pods_SearchAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8816696F87BE4A2EA86585DE /* Pods_SearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +105,10 @@
 				1FBD219A20A90968000EFEC9 /* Extensions.swift */,
 				1F1D1EFF2090CFA200497056 /* ATM.swift */,
 				1F4BB8C7209E4DAC00F3F713 /* S3.swift */,
+<<<<<<< HEAD
 				1FFD945920AB6E81004C5F16 /* Helper.swift */,
+=======
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -119,6 +130,10 @@
 		1F461EDE20A33A21003E1747 /* SearchAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				1FBD21A320A9D5D9000EFEC9 /* Test.swift */,
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
 				1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */,
 				1F461EE120A33A21003E1747 /* Info.plist */,
 				1FBD219F20A91576000EFEC9 /* SetUp.swift */,
@@ -419,9 +434,15 @@
 				1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */,
 				1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */,
 				1F461EED20A37BF6003E1747 /* ATM.swift in Sources */,
+<<<<<<< HEAD
 				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
 				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
 				1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */,
+=======
+				1FBD21A420A9D5D9000EFEC9 /* Test.swift in Sources */,
+				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
+				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

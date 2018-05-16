@@ -185,6 +185,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SearchAppUITests/main.swift"
             timestampString = "548000624.291544"
             startingColumnNumber = "9223372036854775807"
@@ -193,6 +194,16 @@
             endingLineNumber = "13"
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            filePath = "Sources/ATM.swift"
+            timestampString = "548000848.5864871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "postTestResult(testRunKey:testCaseKey:testStatus:environment:comments:exedutionTime:)"
+            landmarkType = "7">
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -201,6 +212,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Sources/Config.swift"
             timestampString = "548006084.834337"
             startingColumnNumber = "9223372036854775807"
@@ -209,6 +221,16 @@
             endingLineNumber = "23"
             landmarkName = "config(ATMBaseURL:ATMCredential:ATMCustomStatus:S3CogitoKey:S3RegionType:S3BucketName:testRunKey:)"
             landmarkType = "7">
+=======
+            filePath = "SearchAppUITests/main.swift"
+            timestampString = "548000624.291544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "unknown"
+            landmarkType = "0">
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -217,6 +239,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SearchAppUITests/TMObserverTests.swift"
             timestampString = "548195494.960978"
             startingColumnNumber = "9223372036854775807"
@@ -272,6 +295,16 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+=======
+            filePath = "Sources/TMObserver.swift"
+            timestampString = "548022431.346295"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "testCaseDidFinish(_:)"
+            landmarkType = "7">
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -280,6 +313,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SearchAppUITests/TMObserverTests.swift"
             timestampString = "548195494.961388"
             startingColumnNumber = "9223372036854775807"
@@ -335,6 +369,16 @@
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+=======
+            filePath = "Sources/Config.swift"
+            timestampString = "548006084.834337"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "config(ATMBaseURL:ATMCredential:ATMCustomStatus:S3CogitoKey:S3RegionType:S3BucketName:testRunKey:)"
+            landmarkType = "7">
+>>>>>>> 261e9ab6d25ed3c180c0fac297ce298102a218bb
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
