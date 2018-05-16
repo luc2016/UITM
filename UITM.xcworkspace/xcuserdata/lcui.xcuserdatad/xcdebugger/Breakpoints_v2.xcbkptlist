@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchAppUITests/TMObserverTests.swift"
-            timestampString = "548127126.784372"
+            timestampString = "548130225.7340519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -234,7 +234,7 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.339242"
+                  timestampString = "548130231.7715729"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -249,7 +249,7 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.342569"
+                  timestampString = "548130231.773844"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -264,7 +264,7 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.345456"
+                  timestampString = "548130231.775866"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -281,7 +281,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchAppUITests/TMObserverTests.swift"
-            timestampString = "548127126.784837"
+            timestampString = "548130225.734349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -297,12 +297,12 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.3561389"
+                  timestampString = "548130231.792146"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
                   endingLineNumber = "100"
-                  offsetFromSymbolStart = "784">
+                  offsetFromSymbolStart = "770">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -312,7 +312,7 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.359413"
+                  timestampString = "548130231.794542"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
@@ -327,7 +327,7 @@
                   moduleName = "SearchAppUITests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lcui/development/mobile/UITM/SearchAppUITests/TMObserverTests.swift"
-                  timestampString = "548127128.362312"
+                  timestampString = "548130231.796648"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
@@ -350,6 +350,22 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "testCaseDidFinish(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchAppUITests/SetUp.swift"
+            timestampString = "548130225.734579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

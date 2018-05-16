@@ -10,7 +10,7 @@ import XCTest
 
 class TestObserver: TMObserver {
     
-    public static var shared = TestObserver()
+    public static var shared2 = TestObserver()
 
     var testStatus :Bool?
     var testName : String?
@@ -82,10 +82,10 @@ class TMObserverTests: XCTestCase {
         testcase.invokeTest()
         TestObserver.shared.testCaseDidFinish(testcase)
 
-        XCTAssert(TestObserver.shared.testName == "-[DummyTests test1]", "TestName is incorrect!")
-        XCTAssert(TestObserver.shared.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
-        XCTAssert(TestObserver.shared.testStatus == true, "Test status is incorrect!")
-        XCTAssert(TestObserver.shared.testComments!.starts(with: "This is a dummy test 1"), "Test comment is incorrect!")
+        XCTAssert(TestObserver.shared2.testName == "-[DummyTests test1]", "TestName is incorrect!")
+        XCTAssert(TestObserver.shared2.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
+        XCTAssert(TestObserver.shared2.testStatus == true, "Test status is incorrect!")
+        XCTAssert(TestObserver.shared2.testComments!.starts(with: "This is a dummy test 1"), "Test comment is incorrect!")
     }
 
     // Test Meta data of a failed test
@@ -96,10 +96,10 @@ class TMObserverTests: XCTestCase {
         TestObserver.shared.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
         TestObserver.shared.testCaseDidFinish(testcase)
         
-        XCTAssert(TestObserver.shared.testName == "-[DummyTests test2]", "TestName is incorrect!")
-        XCTAssert(TestObserver.shared.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
-        XCTAssert(TestObserver.shared.testStatus == false, "Test status is incorrect!")
-        XCTAssert(TestObserver.shared.testComments!.starts(with: "<br>Test page is not loaded properly<br/>"), "Test comment is incorrect!")
+        XCTAssert(TestObserver.shared2.testName == "-[DummyTests test2]", "TestName is incorrect!")
+        XCTAssert(TestObserver.shared2.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
+        XCTAssert(TestObserver.shared2.testStatus == false, "Test status is incorrect!")
+        XCTAssert(TestObserver.shared2.testComments!.starts(with: "<br>Test page is not loaded properly<br/>"), "Test comment is incorrect!")
     }
 
 }
