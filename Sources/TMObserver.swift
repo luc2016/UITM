@@ -11,6 +11,8 @@ import XCTest
 
 public class TMObserver: NSObject, XCTestObservation {
     
+    public static var shared = TMObserver()
+    
     // hoook for pre-test setup
     public func testBundleWillStart(_ testBundle: Bundle){
         //authtnticate using aws cognito

@@ -20,7 +20,7 @@ public class UITM {
     static var S3BuecktName: String?
     static var testRunKey: String?
 
-    class func config(
+    public class func config(
             testRunKey: String,
             ATMBaseURL:String = "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential: String,
