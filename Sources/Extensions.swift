@@ -10,7 +10,7 @@ import XCTest
 public struct MetaData {
     static var shared = MetaData()
     public var testID: String?
-    public var testComments: String?
+    var testComments: String = ""
     public var testStatus: String?
 }
 

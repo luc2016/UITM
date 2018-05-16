@@ -78,10 +78,11 @@ class TMObserverTests: XCTestCase {
 
     // Test Meta data of a succeeded test
     func testSuccessedTestCase() {
+        
         let testcase = DummyTests.init(selector:#selector(DummyTests.test1))
         testcase.invokeTest()
         TestObserver.shared.testCaseDidFinish(testcase)
-
+ 
         XCTAssert(TestObserver.shared2.testName == "-[DummyTests test1]", "TestName is incorrect!")
         XCTAssert(TestObserver.shared2.testCaseKey == "GOLM-T1", "Test Key is incorrect!")
         XCTAssert(TestObserver.shared2.testStatus == true, "Test status is incorrect!")

@@ -27,7 +27,7 @@ public class TMObserver: NSObject, XCTestObservation {
         let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
         
         //post test results to ATM
-        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: "Mobile iOS", comments: testCase.metaData.testComments!, exedutionTime: testDuration)
+        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV, comments: testCase.metaData.testComments, exedutionTime: testDuration)
     }
     
     //hook for failed test case
