@@ -25,10 +25,10 @@ class TestObserver: TMObserver {
         testComments = testCase.metaData.comments
     }
     
-//    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
-//        print("test case failed")
-//        testCase.testComments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
-//    }
+    override func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
+        print("test case failed")
+        testCase.metaData.comments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
+    }
 
 }
 
@@ -94,8 +94,8 @@ class TMObserverTests: XCTestCase {
         let testcase = DummyTests.init(selector:#selector(DummyTests.test2))
         let failMessage = "Test page is not loaded properly"
         testcase.invokeTest()
-        TestObserver.shared.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
-        TestObserver.shared.testCaseDidFinish(testcase)
+        TestObserver.shared2.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
+        TestObserver.shared2.testCaseDidFinish(testcase)
         
         XCTAssert(TestObserver.shared2.testName == "-[DummyTests test2]", "TestName is incorrect!")
         XCTAssert(TestObserver.shared2.testCaseKey == "GOLM-T2", "Test Key is incorrect!")
