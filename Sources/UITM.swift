@@ -15,6 +15,7 @@ public class UITM {
     static var ATMCredential:String?
     static var ATMStatuses: (pass:String, fail:String)?
     static var ATMENV: String?
+    static var attachScreenShot: Bool?
     static var S3CognitoKey: String?
     static var S3RegionType: AWSRegionType?
     static var S3BuecktName: String?
@@ -25,7 +26,8 @@ public class UITM {
             ATMBaseURL:String = "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential: String,
             ATMStatuses: (pass:String, fail:String) = (pass:"Pass", fail:"Fail"),
-            ATMENV:String?,
+            ATMENV:String,
+            attachScreenShot: Bool,
             S3CognitoKey: String,
             S3RegionType:AWSRegionType,
             S3BucketName: String) {
@@ -35,6 +37,7 @@ public class UITM {
         UITM.ATMCredential = ATMCredential
         UITM.ATMENV = ATMENV
         UITM.ATMStatuses = ATMStatuses
+        UITM.attachScreenShot = attachScreenShot
         UITM.S3CognitoKey = S3CognitoKey
         UITM.S3RegionType = S3RegionType
         UITM.S3BuecktName = S3BucketName
