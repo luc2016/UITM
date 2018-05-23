@@ -8,38 +8,9 @@
 
 import XCTest
 
-//Setting up mocking classes
-class TestObserver: TMObserver {
-
-//    public static var shared2 = TestObserver()
-//
-//    var testStatus :Bool?
-//    var testName : String?
-//    var testCaseKey : String?
-//    var testComments : String?
-//
-//    // hoook for pre-test setup
-//    func testBundleWillStart(_ testBundle: Bundle){
-//
-//    }
-//
-//    func testCaseDidFinish(_ testCase: XCTestCase) {
-//        //        super.testCaseDidFinish(testCase)
-//        testStatus = testCase.testRun?.hasSucceeded
-//        testName = testCase.name
-//        testCaseKey = testCase.metaData.testID
-//        testComments = testCase.metaData.comments
-//    }
-//
-//    func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
-//        print("test case failed")
-//        testCase.metaData.comments = "<br>Test page is not loaded properly<br/><img src=\'https://s3.amazonaws.com/uitm2/2EF7357D-7E96-4E8A-A0A0-1526223AE572-71310-00018ADD0E893689.png\'>"
-//    }
-
-}
-
 public class XCTestCaseRunMock : XCTestCaseRun{
     var status :Bool = false
+    var duration: TimeInterval = 0
 
     override open var hasSucceeded: Bool {
         get {
@@ -47,6 +18,15 @@ public class XCTestCaseRunMock : XCTestCaseRun{
         }
         set {
             status = newValue
+        }
+    }
+    
+    override open var testDuration: TimeInterval {
+        get {
+            return testDuration
+        }
+        set {
+            duration = newValue
         }
     }
 }
@@ -57,36 +37,12 @@ public class XCTestCaseMock : XCTestCase{
     }
 }
 
-//
-//class DummyTests: XCTestCaseMock {
-//
-//    override func setUp() {
-//        super.setUp()
-//        XCUIApplication().launch()
-//    }
-//
-//
-//    func test1()  {
-//        self.metaData.comments = "This is a dummy test 1"
-//        self.metaData.testID = "GOLM-T1"
-//        (self.testRun as! XCTestCaseRunMock).hasSucceeded = true
-//    }
-//
-//    func test2()  {
-//        self.metaData.testID = "GOLM-T2"
-//        (self.testRun as! XCTestCaseRunMock).hasSucceeded = false
-//    }
-//
-//}
-
 class ATMMock :ATMProtocol {
-    var url :String?
-    var entries : [String : Any]?
-    var headers : [String : String]?
+    static var url :String?
+    static var entries : [String : Any]?
+    static var headers : [String : String]?
     
-    
-    
-    func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
+    static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
         url = "\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult"
         entries = [
             "status"        : testStatus,
@@ -104,19 +60,15 @@ class TMObserverTests: XCTestCase {
 
     // Test Meta data of a succeeded test
     func testSuccessedTestCase() {
-       
-//        let testcase = DummyTests.init(selector:#selector(DummyTests.test1))
-//        testcase.invokeTest()
         
         let testMock = XCTestCaseMock()
         testMock.metaData.comments = "test"
         testMock.metaData.testID = "T1"
         (testMock.testRun as! XCTestCaseRunMock).hasSucceeded = true
-//        testMock.testRun?.testDuration = 1000
-        
+        (testMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
         
         let mockedATM = ATMMock()
-        let observer = TMObserver(ATM:mockedATM)
+        let observer = TMObserver(ATMType:ATMMock.self)
         
         observer.testCaseDidFinish(testMock)
         
@@ -132,9 +84,9 @@ class TMObserverTests: XCTestCase {
 
     // Test Meta data of a failed test
     func testFailedTestCase() {
-        let testcase = DummyTests.init(selector:#selector(DummyTests.test2))
-        let failMessage = "Test page is not loaded properly"
-        testcase.invokeTest()
+//        let testcase = DummyTests.init(selector:#selector(DummyTests.test2))
+//        let failMessage = "Test page is not loaded properly"
+//        testcase.invokeTest()
 //        TestObserver.shared2.testCase(testcase, didFailWithDescription: failMessage,inFile: nil, atLine: 0)
 //        TestObserver.shared2.testCaseDidFinish(testcase)
 //        

@@ -12,12 +12,12 @@ import Alamofire_Synchronous
 import AWSS3
 
 protocol ATMProtocol {
-     func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int)
+     static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int)
 }
 
 class ATM :ATMProtocol{
 
-     func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
+     static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
         
         let headers = ["authorization": UITM.ATMCredential!]
 

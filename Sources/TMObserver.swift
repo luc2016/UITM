@@ -12,13 +12,11 @@ import XCTest
 
 class TMObserver : NSObject, XCTestObservation  {
     
-    var ATMServer :ATMProtocol
+    var ATMServer :ATMProtocol.Type
     
-    init(ATM:ATMProtocol = ATM()){
-        ATMServer = ATM
+    init(ATMType:ATMProtocol.Type = ATM.self){
+        ATMServer = ATMType
     }
-//    public static var s3 : TMObserver()
-
     
     // hoook for pre-test setup
     public func testBundleWillStart(_ testBundle: Bundle){
