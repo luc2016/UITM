@@ -28,16 +28,24 @@ public class UITM {
             ATMStatuses: (pass:String, fail:String) = (pass:"Pass", fail:"Fail"),
             ATMENV:String,
             attachScreenShot: Bool,
-            S3CognitoKey: String,
-            S3RegionType:AWSRegionType,
-            S3BucketName: String) {
-
+            S3CognitoKey: String? = nil,
+            S3RegionType: AWSRegionType? = nil,
+            S3BucketName: String? = nil) {
+        
         UITM.testRunKey = testRunKey
         UITM.ATMBaseURL = ATMBaseURL
         UITM.ATMCredential = ATMCredential
         UITM.ATMENV = ATMENV
         UITM.ATMStatuses = ATMStatuses
         UITM.attachScreenShot = attachScreenShot
+        
+        // if attachmentScreenShot, then cognito info can't be nil
+        if(attachScreenShot){
+            guard S3CognitoKey != nil && S3RegionType != nil && S3BucketName != nil  else{
+                fatalError("error, congnito configuration need to be set properly.")
+            }
+        }
+
         UITM.S3CognitoKey = S3CognitoKey
         UITM.S3RegionType = S3RegionType
         UITM.S3BuecktName = S3BucketName

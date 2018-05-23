@@ -9,14 +9,23 @@
 import Foundation
 import XCTest
 
-public class TMObserver: NSObject, XCTestObservation {
+
+class TMObserver : NSObject, XCTestObservation  {
     
-    public static var shared = TMObserver()
+    var ATMServer :ATMProtocol
+    
+    init(ATM:ATMProtocol = ATM()){
+        ATMServer = ATM
+    }
+//    public static var s3 : TMObserver()
+
     
     // hoook for pre-test setup
     public func testBundleWillStart(_ testBundle: Bundle){
         //authtnticate using aws cognito
-        S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
+        if(UITM.attachScreenShot!) {
+            S3.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
+        }
     }
 
     //hook for test finished
@@ -27,15 +36,17 @@ public class TMObserver: NSObject, XCTestObservation {
         let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
         //post test results to ATM
-        ATM.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
+        ATMServer.postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
     }
     
     //hook for failed test case
     public func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
         print("test case failed")
-        let imageURL = takeScreenShot()
-        let s3address = S3.uploadImage(bucketName: UITM.S3BuecktName!, imageURL: imageURL)
-        testCase.metaData.failureMessage = "<br>\(description)<br/><img src='\(s3address)'>"
+        if(UITM.attachScreenShot!) {
+            let imageURL = takeScreenShot()
+            let s3address = S3.uploadImage(bucketName: UITM.S3BuecktName!, imageURL: imageURL)
+            testCase.metaData.failureMessage = "<br>\(description)<br/><img src='\(s3address)'>"
+        }
     }
     
 }
