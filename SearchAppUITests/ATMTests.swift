@@ -12,6 +12,7 @@ import Alamofire
 class SessionManagerMock : SessionManagerProtocol {
     var parameters : [String : Any]?
     var url: String?
+    var response : DataResponse<Any>?
     
     func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
         self.parameters = parameters
@@ -19,7 +20,8 @@ class SessionManagerMock : SessionManagerProtocol {
 
         let httpResponse = HTTPURLResponse(url: try! url.asURL(), statusCode: 201, httpVersion: "HTTP/1.1", headerFields: nil)
         let result = Result.success(["id":"493067"] as Any)
-        return DataResponse(request: nil, response: httpResponse, data:nil, result: result)
+        response = DataResponse(request: nil, response: httpResponse, data:nil, result: result)
+        return response!
     }
 }
 

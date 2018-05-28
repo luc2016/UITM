@@ -38,33 +38,13 @@ public class XCTestCaseMock : XCTestCase{
     }
 }
 
-//class ATMMock :ATMProtocol {
-//    var url :String?
-//    var entries : [String : Any]?
-//    var headers : [String : String]?
-//    
-//    func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) -> Response {
-//        url = "\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult"
-//        entries = [
-//            "status"        : testStatus,
-//            "environment"   : environment,
-//            "comment"       : comments,
-//            "executionTime": exedutionTime
-//            ] as [String : Any]
-//        headers = ["authorization": UITM.ATMCredential!]
-//    
-//        return Response.success(result:"string")
-//        
-//    }
-//}
-
 class S3Mock : S3Protocol {
     static var authenticationCallCount = 0
     static var uploadImageWasCallCount = 0
     
     static func uploadImage(bucketName:String, imageURL: URL) -> String {
         uploadImageWasCallCount += 1
-        return ""
+        return "http:s3/uitm2/abcd.jpg"
     }
     
     static func authenticate(identityPoolId: String, regionType:AWSRegionType) {
@@ -78,20 +58,7 @@ class TMObserverTests: XCTestCase {
     let sessionManager = SessionManagerMock()
     var observer : TMObserver?
     
-    override class func setUp() {
-        try! UITM.config(
-            testRunKey:     "R13",
-            ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
-            ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
-            ATMENV:         "Mobile iOS",
-            attachScreenShot: true,
-            S3CognitoKey:   "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
-            S3RegionType:   .USEast1,
-            S3BucketName:   "uitm2"
-        )
-    }
-    
-    override func setUp(){
+    override func setUp() {
         observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
     }
     
@@ -112,22 +79,22 @@ class TMObserverTests: XCTestCase {
         
     }
     
-    func testTestCaseDidFinishFail() {
-        
-        testCaseMock.metaData.comments = "test comment"
-        testCaseMock.metaData.testID = "T1"
-        (testCaseMock.testRun as! XCTestCaseRunMock).hasSucceeded = false
-        (testCaseMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
-        
-        
-        observer!.testCaseDidFinish(testCaseMock)
-        
-//        XCTAssert(ATMMock.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
-//        XCTAssert(ATMMock.entries!["status"] as! String == "Pass")
-//        XCTAssert(ATMMock.entries!["comment"] as! String == "<br>test comment<br/>")
-//        XCTAssert(ATMMock.entries!["executionTime"] as! Int == 452000)
-        
-    }
+//    func testTestCaseDidFinishFail() {
+//        
+//        testCaseMock.metaData.comments = "test comment"
+//        testCaseMock.metaData.testID = "T1"
+//        (testCaseMock.testRun as! XCTestCaseRunMock).hasSucceeded = false
+//        (testCaseMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
+//        
+//        
+//        observer!.testCaseDidFinish(testCaseMock)
+//        
+////        XCTAssert(ATMMock.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
+////        XCTAssert(ATMMock.entries!["status"] as! String == "Pass")
+////        XCTAssert(ATMMock.entries!["comment"] as! String == "<br>test comment<br/>")
+////        XCTAssert(ATMMock.entries!["executionTime"] as! Int == 452000)
+//        
+//    }
 
     // Test Meta data of a failed test
     func testTestSuiteWillStartWithScreenShot() {
@@ -143,10 +110,15 @@ class TMObserverTests: XCTestCase {
     }
 
     func testTestCaseFailedNoScreenShot() {
+        UITM.attachScreenShot = false
+        observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
+        XCTAssertEqual(S3Mock.uploadImageWasCallCount, 0)
     }
     
     func testTestCaseFailedWithScreenShot() {
-        
+        observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
+        XCTAssertEqual(S3Mock.uploadImageWasCallCount, 1)
+        XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/><img src=\'http:s3/uitm2/abcd.jpg\'>")
     }
 
 }

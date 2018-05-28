@@ -10,6 +10,7 @@ import XCTest
 
 class ConfigTests: XCTestCase {
     
+    //test singleton variables are set properly
     func testConfigurationWithScreenShotSuccess() throws {
         
         try UITM.config(
@@ -33,6 +34,7 @@ class ConfigTests: XCTestCase {
         XCTAssertEqual(UITM.S3BucketName,   "uitm2", "Attach screen shot is not set properly.")
     }
     
+    //test if attachmentScreenshot is true, and no S3 parameter set, then function will throw an error
     func testConfigurationWithScreenShotFail() throws {
         
         let result = try? UITM.config(
@@ -44,17 +46,6 @@ class ConfigTests: XCTestCase {
         )
         
         XCTAssertNil(result, "should throw error message if S3 info is not provided")
-        
-    }
-    
-    func testConfigurationNoScreenShotSuccess() throws {
-        
-        try UITM.config(
-            testRunKey:     "R13",
-            ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
-            ATMENV:         "Mobile iOS",
-            attachScreenShot: false
-        )
         
     }
     

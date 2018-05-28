@@ -46,6 +46,7 @@ class ATM {
 
         if let error = response.error{
             print("Failed with error: \(error)")
+            logFailedResults()
         }else{
             print("Uploaded test result successfully")
         }

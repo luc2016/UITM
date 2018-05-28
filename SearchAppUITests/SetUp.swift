@@ -12,10 +12,10 @@ import XCTest
 class SetUp : NSObject {
     override init() {
         try! UITM.config(
-            testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!,
+            testRunKey:     "R13",
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
-            ATMENV:         ProcessInfo.processInfo.environment["ATM_ENV"]!,
+            ATMENV:         "Mobile iOS",
             attachScreenShot: true,
             S3CognitoKey:   "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
             S3RegionType:   .USEast1,
