@@ -78,23 +78,6 @@ class TMObserverTests: XCTestCase {
         XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 452000)
         
     }
-    
-//    func testTestCaseDidFinishFail() {
-//        
-//        testCaseMock.metaData.comments = "test comment"
-//        testCaseMock.metaData.testID = "T1"
-//        (testCaseMock.testRun as! XCTestCaseRunMock).hasSucceeded = false
-//        (testCaseMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
-//        
-//        
-//        observer!.testCaseDidFinish(testCaseMock)
-//        
-////        XCTAssert(ATMMock.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
-////        XCTAssert(ATMMock.entries!["status"] as! String == "Pass")
-////        XCTAssert(ATMMock.entries!["comment"] as! String == "<br>test comment<br/>")
-////        XCTAssert(ATMMock.entries!["executionTime"] as! Int == 452000)
-//        
-//    }
 
     // Test Meta data of a failed test
     func testTestSuiteWillStartWithScreenShot() {

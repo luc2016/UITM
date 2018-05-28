@@ -44,7 +44,7 @@ public class S3 : S3Protocol {
 
                     if let error = task.error {
                         print(error)
-                        fatalError("S3 uploading failed with error: \(error)")
+                        print("S3 uploading failed with error: \(error)")
                     }
                     
                     if task.result != nil {

@@ -46,7 +46,7 @@ class ATM {
 
         if let error = response.error{
             print("Failed with error: \(error)")
-            logFailedResults()
+            logFailedResults(fileName:"ErrorLog.txt",content: url)
         }else{
             print("Uploaded test result successfully")
         }
@@ -54,8 +54,17 @@ class ATM {
         
     }
 
-    private func logFailedResults() {
-        
+    private func logFailedResults(fileName:String,content: String) {
+    
+        let fileName = "ErrorLog.txt"
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+//        let myText = "Some text to write to file"
+        let data = Data(content.utf8)
+        do {
+            try data.write(to: url, options: .atomic)
+        } catch {
+            print(error)
+        }
     }
     
 }
