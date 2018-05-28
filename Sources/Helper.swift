@@ -9,15 +9,12 @@
 import Foundation
 import XCTest
 
-func takeScreenShot() -> URL {
+public func takeScreenShot(fileURL: URL) {
     let screenShot: XCUIScreenshot = XCUIScreen.main.screenshot()
     let myImage = screenShot.pngRepresentation
-    let fileName = ProcessInfo.processInfo.globallyUniqueString + ".png"
-    let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     do {
         try myImage.write(to: fileURL, options: .atomic)
     } catch {
-        XCTAssert(false, "Was not able to save screen capture!")
+        XCTAssert(false, "Was not able to save screen captured!")
     }
-    return fileURL
 }

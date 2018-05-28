@@ -11,14 +11,27 @@ import Alamofire
 import Alamofire_Synchronous
 import AWSS3
 
-protocol ATMProtocol {
-     static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int)
+protocol SessionManagerProtocol {
+    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any>
 }
 
-class ATM :ATMProtocol{
+extension Alamofire.SessionManager : SessionManagerProtocol {
+    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
+        return self.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
+    }
+}
 
-     static func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) {
+class ATM {
+    var sessionManager : SessionManagerProtocol
+    
+    init(_ sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default){
+        self.sessionManager = sessionManager
+    }
+
+    public func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) -> Result<Any> {
         
+        
+        let url = "\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult"
         let headers = ["authorization": UITM.ATMCredential!]
 
         let entries = [
@@ -28,14 +41,20 @@ class ATM :ATMProtocol{
             "executionTime": exedutionTime
             ] as [String : Any]
         
-        let response = Alamofire.request("\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult", method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
+//        let response = networkManager.request(url, method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
+        let response = sessionManager.jsonResponse(url, method: .post, parameters: entries, headers: headers)
 
-        if let error = response.error {
+        if let error = response.error{
             print("Failed with error: \(error)")
-            fatalError("ATM uploading failed with error: \(error)")
         }else{
             print("Uploaded test result successfully")
         }
+        return response.result
+        
+    }
+
+    private func logFailedResults() {
+        
     }
     
 }

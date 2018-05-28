@@ -11,7 +11,7 @@ import XCTest
 
 class SetUp : NSObject {
     override init() {
-        UITM.config(
+        try! UITM.config(
             testRunKey:     ProcessInfo.processInfo.environment["TEST_RUN_KEY"]!,
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
@@ -22,7 +22,8 @@ class SetUp : NSObject {
             S3BucketName:   "uitm2"
         )
         
-//        XCTestObservationCenter.shared.addTestObserver(TMObserver.shared)
+//        XCTestObservationCenter.shared.addTestObserver(TMObserver())
+        
     }
 
 }

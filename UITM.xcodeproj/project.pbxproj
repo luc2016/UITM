@@ -18,6 +18,8 @@
 		1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
 		1F461EED20A37BF6003E1747 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D1EFF2090CFA200497056 /* ATM.swift */; };
 		1F461EEE20A37BF9003E1747 /* S3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB8C7209E4DAC00F3F713 /* S3.swift */; };
+		1F894BC620B85CFB00814571 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F894BC520B85CFB00814571 /* ConfigTests.swift */; };
+		1F894BC820BB325000814571 /* ATMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F894BC720BB325000814571 /* ATMTests.swift */; };
 		1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219C20A90970000EFEC9 /* UITM.swift */; };
 		1FBD21A020A91576000EFEC9 /* SetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219F20A91576000EFEC9 /* SetUp.swift */; };
 		1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219A20A90968000EFEC9 /* Extensions.swift */; };
@@ -51,6 +53,8 @@
 		1F461EDB20A33A21003E1747 /* SearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F461EE120A33A21003E1747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F4BB8C7209E4DAC00F3F713 /* S3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3.swift; sourceTree = "<group>"; };
+		1F894BC520B85CFB00814571 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		1F894BC720BB325000814571 /* ATMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMTests.swift; sourceTree = "<group>"; };
 		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
 		1FBD219A20A90968000EFEC9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FBD219C20A90970000EFEC9 /* UITM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		1F461EDE20A33A21003E1747 /* SearchAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1F894BC720BB325000814571 /* ATMTests.swift */,
+				1F894BC520B85CFB00814571 /* ConfigTests.swift */,
 				1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */,
 				1F461EE120A33A21003E1747 /* Info.plist */,
 				1FBD219F20A91576000EFEC9 /* SetUp.swift */,
@@ -418,7 +424,9 @@
 				1F461EEB20A37B00003E1747 /* TMObserverTests.swift in Sources */,
 				1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */,
 				1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */,
+				1F894BC620B85CFB00814571 /* ConfigTests.swift in Sources */,
 				1F461EED20A37BF6003E1747 /* ATM.swift in Sources */,
+				1F894BC820BB325000814571 /* ATMTests.swift in Sources */,
 				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
 				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
 				1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */,
