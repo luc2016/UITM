@@ -8,13 +8,14 @@
 
 import Foundation
 import XCTest
+import Alamofire
 
-class TMObserver : NSObject, XCTestObservation  {
+public class TMObserver : NSObject, XCTestObservation  {
     
     var sessionManager: SessionManagerProtocol
     var S3Service: S3Protocol.Type
     
-    public init(sessionManager: SessionManagerProtocol, S3Type:S3Protocol.Type = S3.self){
+    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self){
         self.sessionManager = sessionManager
         S3Service = S3Type
     }
