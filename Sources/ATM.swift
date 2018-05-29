@@ -55,7 +55,7 @@ class ATM {
     private func errorHandling(_ response: DataResponse<Any>){
         if let error = response.error{
             print("Failed with error: \(error)")
-            logFailedResults(fileName:"ErrorLog.txt",content: url)
+//            logFailedResults(fileName:"ErrorLog.txt",content: url)
         }else{
             print("Uploaded test result successfully")
         }
