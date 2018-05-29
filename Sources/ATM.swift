@@ -11,12 +11,12 @@ import Alamofire
 import Alamofire_Synchronous
 import AWSS3
 
-protocol SessionManagerProtocol {
+public protocol SessionManagerProtocol {
     func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any>
 }
 
 extension Alamofire.SessionManager : SessionManagerProtocol {
-    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
+    public func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
         return self.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
     }
 }

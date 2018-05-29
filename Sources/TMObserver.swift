@@ -15,7 +15,7 @@ public class TMObserver : NSObject, XCTestObservation  {
     var sessionManager: SessionManagerProtocol
     var S3Service: S3Protocol.Type
     
-    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self){
+    public init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self){
         self.sessionManager = sessionManager
         S3Service = S3Type
     }
