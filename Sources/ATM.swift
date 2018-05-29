@@ -30,9 +30,8 @@ class ATM {
 
     public func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) -> Result<Any> {
         
-        
         let url = "\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult"
-        let headers = ["authorization": UITM.ATMCredential!]
+        let headers = ["authorization": "Bearer "+UITM.ATMAccessToken!]
 
         let entries = [
             "status"        : testStatus,
@@ -44,21 +43,27 @@ class ATM {
 //        let response = networkManager.request(url, method: .post, parameters: entries, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
         let response = sessionManager.jsonResponse(url, method: .post, parameters: entries, headers: headers)
 
+        errorHandling(response)
+        return response.result
+        
+    }
+    
+    private func constructRequest(){
+        
+    }
+    
+    private func errorHandling(_ response: DataResponse<Any>){
         if let error = response.error{
             print("Failed with error: \(error)")
             logFailedResults(fileName:"ErrorLog.txt",content: url)
         }else{
             print("Uploaded test result successfully")
         }
-        return response.result
-        
     }
 
     private func logFailedResults(fileName:String,content: String) {
     
-        let fileName = "ErrorLog.txt"
         let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-//        let myText = "Some text to write to file"
         let data = Data(content.utf8)
         do {
             try data.write(to: url, options: .atomic)

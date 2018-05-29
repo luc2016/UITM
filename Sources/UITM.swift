@@ -16,7 +16,7 @@ enum ConfigError: Error {
 public class UITM {
 
     static var ATMBaseURL: String?
-    static var ATMCredential:String?
+    static var ATMAccessToken:String?
     static var ATMStatuses: (pass:String, fail:String)?
     static var ATMENV: String?
     static var attachScreenShot: Bool?
@@ -28,7 +28,7 @@ public class UITM {
     public class func config(
             testRunKey: String,
             ATMBaseURL:String = "https://jira.lblw.ca/rest/atm/1.0",
-            ATMCredential: String,
+            ATMAccessToken: String,
             ATMStatuses: (pass:String, fail:String) = (pass:"Pass", fail:"Fail"),
             ATMENV:String,
             attachScreenShot: Bool,
@@ -45,7 +45,7 @@ public class UITM {
 
         UITM.testRunKey = testRunKey
         UITM.ATMBaseURL = ATMBaseURL
-        UITM.ATMCredential = ATMCredential
+        UITM.ATMAccessToken = ATMAccessToken
         UITM.ATMENV = ATMENV
         UITM.ATMStatuses = ATMStatuses
         UITM.attachScreenShot = attachScreenShot
