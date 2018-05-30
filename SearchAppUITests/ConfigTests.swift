@@ -16,7 +16,7 @@ class ConfigTests: XCTestCase {
         try UITM.config(
             testRunKey:     "R13",
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
-            ATMAccessToken:  "Basic RmVycmlzOmZlcnJpcw==",
+            ATMCredential:  "Basic RmVycmlzOmZlcnJpcw==",
             ATMENV:         "Mobile iOS",
             attachScreenShot: true,
             S3CognitoKey:   "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
@@ -26,7 +26,7 @@ class ConfigTests: XCTestCase {
 
         XCTAssertEqual(UITM.testRunKey,     "R13", "Test Run key is not set properly.")
         XCTAssertEqual(UITM.ATMBaseURL,     "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
-        XCTAssertEqual(UITM.ATMAccessToken,  "Basic RmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
+        XCTAssertEqual(UITM.ATMCredential,  "Basic RmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
         XCTAssertEqual(UITM.ATMENV,         "Mobile iOS", "ATM environment is not set properly.")
         XCTAssertEqual(UITM.attachScreenShot, true, "Attach screen shot is not set properly.")
         XCTAssertEqual(UITM.S3CognitoKey,   "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd", "Attach screen shot is not set properly.")
@@ -40,7 +40,7 @@ class ConfigTests: XCTestCase {
         let result = try? UITM.config(
             testRunKey:     "R13",
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
-            ATMAccessToken:  "Basic RmVycmlzOmZlcnJpcw==",
+            ATMCredential:  "RmVycmlzOmZlcnJpcw==",
             ATMENV:         "Mobile iOS",
             attachScreenShot: true
         )

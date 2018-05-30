@@ -16,7 +16,7 @@ enum ConfigError: Error {
 public class UITM {
 
     static var ATMBaseURL: String?
-    static var ATMAccessToken:String?
+    static var ATMCredential:String?
     static var ATMStatuses: (pass:String, fail:String)?
     static var ATMENV: String?
     static var attachScreenShot: Bool?
@@ -24,17 +24,20 @@ public class UITM {
     static var S3RegionType: AWSRegionType?
     static var S3BucketName: String?
     static var testRunKey: String?
+    static var outputDirectory: String?
 
     public class func config(
             testRunKey: String,
             ATMBaseURL:String = "https://jira.lblw.ca/rest/atm/1.0",
-            ATMAccessToken: String,
+            ATMCredential: String,
             ATMStatuses: (pass:String, fail:String) = (pass:"Pass", fail:"Fail"),
             ATMENV:String,
             attachScreenShot: Bool,
             S3CognitoKey: String? = nil,
             S3RegionType: AWSRegionType? = nil,
-            S3BucketName: String? = nil) throws {
+            S3BucketName: String? = nil,
+            outputDirectory: String = "./UITM/output"
+            ) throws {
         
         // if attachmentScreenShot, then s3 cognito and bucket info can't be nil
         if(attachScreenShot){
@@ -45,13 +48,14 @@ public class UITM {
 
         UITM.testRunKey = testRunKey
         UITM.ATMBaseURL = ATMBaseURL
-        UITM.ATMAccessToken = ATMAccessToken
+        UITM.ATMCredential = ATMCredential
         UITM.ATMENV = ATMENV
         UITM.ATMStatuses = ATMStatuses
         UITM.attachScreenShot = attachScreenShot
         UITM.S3CognitoKey = S3CognitoKey
         UITM.S3RegionType = S3RegionType
         UITM.S3BucketName = S3BucketName
+        UITM.outputDirectory = outputDirectory
                 
     }
 }

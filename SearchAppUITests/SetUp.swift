@@ -14,7 +14,7 @@ class SetUp : NSObject {
         try! UITM.config(
             testRunKey:     "R13",
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
-            ATMAccessToken:  "vHsRHLK8JyP05NYatm3E1A9B",
+            ATMCredential:  "ZmVycmlzOmZlcnJpcw==",
             ATMENV:         "Mobile iOS",
             attachScreenShot: true,
             S3CognitoKey:   "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",

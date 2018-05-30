@@ -10,6 +10,23 @@ import Foundation
 import XCTest
 import Alamofire
 
+struct ATMRequest {
+    let url: String
+    let headers: [String:String]
+    let entries: [String:Any]
+}
+
+public protocol SessionManagerProtocol {
+    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any>
+}
+
+extension Alamofire.SessionManager : SessionManagerProtocol {
+    public func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
+        return self.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
+    }
+}
+
+
 public class TMObserver : NSObject, XCTestObservation  {
     
     var sessionManager: SessionManagerProtocol
@@ -33,13 +50,13 @@ public class TMObserver : NSObject, XCTestObservation  {
     //hook for test finished
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case \(testCase.name) Finished")
-        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
-        let testDuration = Int(testCase.testRun?.testDuration as! Double * 10000)
-        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
+        let request = constructRequest(testCase)
         
         //post test results to ATM
-        ATM(sessionManager).postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
-        
+        let response = sessionManager.jsonResponse(request.url, method: .post, parameters: request.entries, headers: request.headers)
+//        let response = ATM(sessionManager).postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
+        errorHandling(response)
+
     }
     
     //hook for failed test case
@@ -56,4 +73,43 @@ public class TMObserver : NSObject, XCTestObservation  {
         }
     }
     
+    private func constructRequest(_ testCase: XCTestCase) -> ATMRequest{
+        
+        let url = "\(UITM.ATMBaseURL!)/testrun/\(UITM.testRunKey)/testcase/\(testCase.metaData.testID)/testresult"
+        let headers = ["authorization": "Basic "+UITM.ATMCredential!]
+        
+        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
+        let testDuration = Int(testCase.testRun?.testDuration as! Double * 10000)
+        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
+        
+        let entries = [
+            "status"        : testStatus,
+            "environment"   : UITM.ATMENV,
+            "comment"       : comments,
+            "executionTime": testDuration
+            ] as [String : Any]
+        
+        return  ATMRequest(url: url, headers: headers, entries: entries)
+    }
+    
+    private func errorHandling(_ response: DataResponse<Any>){
+        if let error = response.error{
+            print("Failed with error: \(error)")
+            //            logFailedResults(fileName:"ErrorLog.txt",content: url)
+        }else{
+            print("Uploaded test result successfully")
+        }
+    }
+    
+    private func logFailedResults(fileName:String,content: String) {
+        
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        let data = Data(content.utf8)
+        do {
+            try data.write(to: url, options: .atomic)
+        } catch {
+            print(error)
+        }
+    }
+
 }
