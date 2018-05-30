@@ -31,7 +31,9 @@ class ATM {
     public func postTestResult(testRunKey: String, testCaseKey: String, testStatus: String, environment: String, comments:String, exedutionTime: Int) -> Result<Any> {
         
         let url = "\(UITM.ATMBaseURL!)/testrun/\(testRunKey)/testcase/\(testCaseKey)/testresult"
-        let headers = ["authorization": "Bearer "+UITM.ATMAccessToken!]
+//        let headers = ["authorization": "Bearer "+UITM.ATMAccessToken!]
+        let headers = ["authorization": "Basic ZmVycmlzOmZlcnJpcw=="]
+//        let headers = ["authorization": "Bearer LdWOljJrOJyqnh3ZExAzA27F"]
 
         let entries = [
             "status"        : testStatus,
