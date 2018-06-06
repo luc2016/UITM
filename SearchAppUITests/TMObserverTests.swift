@@ -78,6 +78,10 @@ class TMObserverTests: XCTestCase {
         XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 452000)
         
     }
+    
+    func testTestCaseDidFinishSaveLog() {
+        
+    }
 
     // Test Meta data of a failed test
     func testTestSuiteWillStartWithScreenShot() {
@@ -86,7 +90,7 @@ class TMObserverTests: XCTestCase {
     }
 
 
-    func testTestBundleWillStartNoScreenShot() {
+    func testTestSuiteWillStartNoScreenShot() {
         UITM.attachScreenShot = false
         observer!.testSuiteWillStart(XCTestSuite.default)
         XCTAssertEqual(S3Mock.authenticationCallCount, 0)
@@ -103,5 +107,5 @@ class TMObserverTests: XCTestCase {
         XCTAssertEqual(S3Mock.uploadImageWasCallCount, 1)
         XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/><img src=\'http:s3/uitm2/abcd.jpg\'>")
     }
-
+    
 }

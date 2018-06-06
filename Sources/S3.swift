@@ -28,36 +28,39 @@ public class S3 : S3Protocol {
 
     //upload image to s3 bucket
     public static func uploadImage(bucketName:String, imageURL: URL) -> String {
-
-        let uploadRequest = AWSS3TransferManagerUploadRequest()!
         var imageS3Address = ""
+        let uploadRequest = makeUploadRequest(bucketName: bucketName, imageURL: imageURL)
+        
+        let transferManager = AWSS3TransferManager.default()
+        let expectation = XCTestExpectation(description: "upload image to s3")
+        transferManager.upload(uploadRequest).continueWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+
+                if let error = task.error {
+                    print("S3 uploading failed with error: \(error)")
+                }
+            
+                if task.result != nil {
+                    print("uploaded succesfully")
+                    imageS3Address = "https://s3.amazonaws.com/\(bucketName)/\(uploadRequest.key!)"
+                }
+                
+                expectation.fulfill()
+                return nil
+        }
+
+        XCTWaiter.wait(for: [expectation], timeout: 10.0)
+        return imageS3Address
+    }
+    
+    private static func makeUploadRequest(bucketName:String, imageURL: URL) -> AWSS3TransferManagerUploadRequest {
+        let uploadRequest = AWSS3TransferManagerUploadRequest()!
         let imageName = imageURL.path.replacingOccurrences(of: "(.*)/", with: "", options: .regularExpression, range:nil)
         let imageType = imageURL.path.replacingOccurrences(of: "(.*).", with: "", options: .regularExpression, range:nil)
         uploadRequest.bucket = bucketName
         uploadRequest.key = imageName
         uploadRequest.body = imageURL
         uploadRequest.contentType = "image/\(imageType)"
-        
-        let transferManager = AWSS3TransferManager.default()
-        let expectation = XCTestExpectation(description: "upload image to s3")
-            transferManager.upload(uploadRequest).continueWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
-
-                    if let error = task.error {
-                        print(error)
-                        print("S3 uploading failed with error: \(error)")
-                    }
-                    
-                    if task.result != nil {
-                        print("uploaded succesfully")
-                        imageS3Address = "https://s3.amazonaws.com/\(bucketName)/\(imageName)"
-                    }
-                
-                expectation.fulfill()
-                return nil
-            }
-
-        XCTWaiter.wait(for: [expectation], timeout: 10.0)
-        return imageS3Address
+        return uploadRequest
     }
     
 }

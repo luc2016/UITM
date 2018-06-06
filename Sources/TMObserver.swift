@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 import Alamofire
+import Alamofire_Synchronous
 
 struct ATMRequest {
     let url: String
@@ -32,7 +33,7 @@ public class TMObserver : NSObject, XCTestObservation  {
     var sessionManager: SessionManagerProtocol
     var S3Service: S3Protocol.Type
     
-    public init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self){
+    public init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self ){
         self.sessionManager = sessionManager
         S3Service = S3Type
     }
@@ -50,13 +51,10 @@ public class TMObserver : NSObject, XCTestObservation  {
     //hook for test finished
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case \(testCase.name) Finished")
-        let request = constructRequest(testCase)
         
-        //post test results to ATM
+        let request = makeATMRequest(testCase)
         let response = sessionManager.jsonResponse(request.url, method: .post, parameters: request.entries, headers: request.headers)
-//        let response = ATM(sessionManager).postTestResult(testRunKey: UITM.testRunKey!, testCaseKey: testCase.metaData.testID!, testStatus: testStatus, environment: UITM.ATMENV!, comments: comments, exedutionTime: testDuration)
         errorHandling(response)
-
     }
     
     //hook for failed test case
@@ -73,13 +71,13 @@ public class TMObserver : NSObject, XCTestObservation  {
         }
     }
     
-    private func constructRequest(_ testCase: XCTestCase) -> ATMRequest{
+    private func makeATMRequest(_ testCase: XCTestCase) -> ATMRequest{
         
         let url = "\(UITM.ATMBaseURL!)/testrun/\(UITM.testRunKey)/testcase/\(testCase.metaData.testID)/testresult"
         let headers = ["authorization": "Basic "+UITM.ATMCredential!]
         
         let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
-        let testDuration = Int(testCase.testRun?.testDuration as! Double * 10000)
+        let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
         let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
         let entries = [
@@ -95,7 +93,7 @@ public class TMObserver : NSObject, XCTestObservation  {
     private func errorHandling(_ response: DataResponse<Any>){
         if let error = response.error{
             print("Failed with error: \(error)")
-            //            logFailedResults(fileName:"ErrorLog.txt",content: url)
+//            logFailedResults(fileName:"ErrorLog.txt",content: url)
         }else{
             print("Uploaded test result successfully")
         }
