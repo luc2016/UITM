@@ -81,7 +81,8 @@ Pod::Spec.new do |s|
   #
 
   #s.source       = { :git => "http://EXAMPLE/UITM.git", :tag => "#{s.version}" }
-  s.source        = { :path => '.' }
+  #s.source        = { :path => '.' }
+  s.source       = { :git => "https://gitlab.lblw.ca/lu.cui/UITM.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
