@@ -27,14 +27,14 @@ class SessionManagerMock : SessionManagerProtocol {
 
 class ATMTests: XCTestCase {
     
-    func testPostTestResult() {
-        let sessionManager = SessionManagerMock()
-        let result = ATM(sessionManager).postTestResult(testRunKey: "R13", testCaseKey: "T1", testStatus: "Pass", environment: "Mobile iOS", comments: "test", exedutionTime: 100)
-        XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
-        XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
-        XCTAssert(sessionManager.parameters!["comment"] as! String == "test")
-        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 100)
-        XCTAssert(result.isSuccess == true)
-    }
+//    func testPostTestResult() {
+//        let sessionManager = SessionManagerMock()
+//        let result = ATM(sessionManager).postTestResult(testRunKey: "R13", testCaseKey: "T1", testStatus: "Pass", environment: "Mobile iOS", comments: "test", exedutionTime: 100)
+//        XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
+//        XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
+//        XCTAssert(sessionManager.parameters!["comment"] as! String == "test")
+//        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 100)
+//        XCTAssert(result.isSuccess == true)
+//    }
     
 }

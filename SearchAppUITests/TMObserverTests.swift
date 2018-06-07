@@ -75,7 +75,7 @@ class TMObserverTests: XCTestCase {
         XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
         XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
         XCTAssert(sessionManager.parameters!["comment"] as! String == "<br>test comment<br/>")
-        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 452000)
+        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 45200)
         
     }
     

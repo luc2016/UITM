@@ -73,7 +73,7 @@ public class TMObserver : NSObject, XCTestObservation  {
     
     private func makeATMRequest(_ testCase: XCTestCase) -> ATMRequest{
         
-        let url = "\(UITM.ATMBaseURL!)/testrun/\(UITM.testRunKey)/testcase/\(testCase.metaData.testID)/testresult"
+        let url = "\(UITM.ATMBaseURL!)/testrun/\(UITM.testRunKey!)/testcase/\(testCase.metaData.testID!)/testresult"
         let headers = ["authorization": "Basic "+UITM.ATMCredential!]
         
         let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
