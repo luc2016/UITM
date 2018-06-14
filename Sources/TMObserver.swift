@@ -30,11 +30,11 @@ extension Alamofire.SessionManager : SessionManagerProtocol {
 public class TMObserver : NSObject, XCTestObservation  {
     
     var sessionManager: SessionManagerProtocol
-    var S3Service: S3Protocol.Type
+    var storageService: CloudStorageProtocol.Type
     
-    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self ) {
+    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, storageType:CloudStorageProtocol.Type = S3.self ) {
         self.sessionManager = sessionManager
-        S3Service = S3Type
+        storageService = storageType
     }
     
     public func testSuiteWillStart(_ testSuite: XCTestSuite) {
@@ -42,7 +42,7 @@ public class TMObserver : NSObject, XCTestObservation  {
         
         //authtnticate using aws cognito
         if(UITM.attachScreenShot!) {
-            S3Service.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
+            storageService.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
         }
     }
 
@@ -70,7 +70,7 @@ public class TMObserver : NSObject, XCTestObservation  {
             takeScreenShot(fileURL:imageURL )
             
             do {
-                let s3address = try S3Service.uploadImage(bucketName: UITM.S3BucketName!, imageURL: imageURL)
+                let s3address = try storageService.uploadImage(bucketName: UITM.S3BucketName!, imageURL: imageURL)
                 testCase.metaData.failureMessage += "<img src='\(s3address)'>"
             }
             catch {

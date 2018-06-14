@@ -40,7 +40,7 @@ public class XCTestCaseMock : XCTestCase{
     }
 }
 
-class S3Mock : S3Protocol {
+class S3Mock : CloudStorageProtocol {
     static var authenticationCallCount = 0
     static var uploadImageWasCallCount = 0
     
@@ -77,7 +77,7 @@ class TMObserverTests: XCTestCase {
     var observer : TMObserver?
     
     override func setUp() {
-        observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
+        observer = TMObserver(sessionManager: sessionManager, storageType: S3Mock.self)
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ class TMObserverTests: XCTestCase {
     // Test Meta data of a succeeded test
     func testTestCaseDidFinishAWSNetworkSuccess() {
         
-//        observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
+//        observer = TMObserver(sessionManager: sessionManager, storageType: S3Mock.self)
         
         testCaseMock.metaData.comments = "test comment"
         testCaseMock.metaData.testID = "T1"
@@ -118,7 +118,7 @@ class TMObserverTests: XCTestCase {
     }
     
     func testTestCaseDidFinishAWSNetworkFail() {
-        observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
+        observer = TMObserver(sessionManager: sessionManager, storageType: S3Mock.self)
         
         testCaseMock.metaData.comments = "test comment"
         testCaseMock.metaData.testID = "T1"

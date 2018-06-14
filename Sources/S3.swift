@@ -11,12 +11,12 @@ import AWSS3
 import AWSCognito
 import XCTest
 
-public protocol S3Protocol {
+public protocol CloudStorageProtocol {
     static func authenticate(identityPoolId: String, regionType:AWSRegionType)
     static func uploadImage(bucketName:String, imageURL: URL) throws -> String
 }
 
-class S3 : S3Protocol {
+class S3 : CloudStorageProtocol {
     
     //authtnticate using aws cognito
     //depends on: AWSCognitoCredentialsProvider, AWSServiceConfiguration, AWSServiceManager
