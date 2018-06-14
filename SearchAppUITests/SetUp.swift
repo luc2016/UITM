@@ -22,7 +22,7 @@ class SetUp : NSObject {
             S3BucketName:   "uitm2"
         )
         
-        XCTestObservationCenter.shared.addTestObserver(TMObserver())
+//        XCTestObservationCenter.shared.addTestObserver(TMObserver())
     }
 
 }
