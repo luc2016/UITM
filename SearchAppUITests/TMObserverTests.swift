@@ -175,7 +175,9 @@ class TMObserverTests: XCTestCase {
     }
     
     func  testTestCaseFailedWithScreenShotappendToLog(){
-
+        self.metaData.testID = "GOLM-T1"
+        self.metaData.comments = "test me no app target"
+        XCTFail("dd")
     }
     
 }
