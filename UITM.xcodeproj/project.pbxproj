@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E6F08E4ADFBBE2274214F22 /* Pods_SearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8816696F87BE4A2EA86585DE /* Pods_SearchApp.framework */; };
+		1F10B9CF20D2BCF40018BD09 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10B9CD20D2BCF40018BD09 /* ATM.swift */; };
 		1F461EBD20A33A1F003E1747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F461EBC20A33A1F003E1747 /* AppDelegate.swift */; };
 		1F461EBF20A33A1F003E1747 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F461EBE20A33A1F003E1747 /* ViewController.swift */; };
 		1F461EC220A33A1F003E1747 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F461EC020A33A1F003E1747 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		0A9A4D0A531863F28137AE38 /* Pods-SearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchApp/Pods-SearchApp.release.xcconfig"; sourceTree = "<group>"; };
 		18122BAF5AEFA338ED14B68E /* Pods_UITM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F10B9CD20D2BCF40018BD09 /* ATM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
 		1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserverTests.swift; sourceTree = "<group>"; };
 		1F461EBA20A33A1F003E1747 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F461EBC20A33A1F003E1747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				1FBD219A20A90968000EFEC9 /* Extensions.swift */,
 				1F4BB8C7209E4DAC00F3F713 /* S3.swift */,
 				1FFD945920AB6E81004C5F16 /* Helper.swift */,
+				1F10B9CD20D2BCF40018BD09 /* ATM.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				1F62EF6520C7243200AA9DDC /* MetaDataTests.swift in Sources */,
 				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
 				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
+				1F10B9CF20D2BCF40018BD09 /* ATM.swift in Sources */,
 				1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

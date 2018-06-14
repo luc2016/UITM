@@ -11,22 +11,6 @@ import XCTest
 import Alamofire
 import Alamofire_Synchronous
 
-struct ATMRequest {
-    let url: String
-    let headers: [String:String]
-    let entries: [String:Any]
-}
-
-public protocol SessionManagerProtocol {
-    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any>
-}
-
-extension Alamofire.SessionManager : SessionManagerProtocol {
-    public func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
-        return self.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON()
-    }
-}
-
 public class TMObserver : NSObject, XCTestObservation  {
     
     var sessionManager: SessionManagerProtocol
@@ -50,10 +34,13 @@ public class TMObserver : NSObject, XCTestObservation  {
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case \(testCase.name) Finished")
         
-        let request = makeATMRequest(testCase)
-        let response = sessionManager.jsonResponse(request.url, method: .post, parameters: request.entries, headers: request.headers)
+        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
+        let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
+        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
+        
+        let response = ATM().uploadTestResult(testId:testCase.metaData.testID!, testComments:comments, testStatus:testStatus, testDuration:testDuration)
         if let error = response.error {
-            appendToLog("ATM upload result failed with error: \(error)!")
+            appendToLog("Upload result failed with error: \(error)!")
             appendToLog("The faile testcase is: \(response.request!.description)!")
         }
     }
@@ -77,25 +64,6 @@ public class TMObserver : NSObject, XCTestObservation  {
                 appendToLog("S3 upload image failed with \(error)!")
             }
         }
-    }
-    
-    private func makeATMRequest(_ testCase: XCTestCase, testRunKey:String = UITM.testRunKey!, ATMBaseURL:String = UITM.ATMBaseURL!, ATMCredential: String = UITM.ATMCredential!, ATMEnv:String = UITM.ATMENV!, ATMStatus:(pass:String, fail:String) = UITM.ATMStatuses! ) -> ATMRequest {
-        
-        let url = "\(ATMBaseURL)/testrun/\(testRunKey)/testcase/\(testCase.metaData.testID!)/testresult"
-        let headers = ["authorization": "Basic " + ATMCredential]
-        
-        let testStatus =  (testCase.testRun?.hasSucceeded)! ? ATMStatus.pass : ATMStatus.fail
-        let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
-        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
-        
-        let entries = [
-            "status"        : testStatus,
-            "environment"   : ATMEnv,
-            "comment"       : comments,
-            "executionTime" : testDuration
-            ] as [String : Any]
-        
-        return  ATMRequest(url: url, headers: headers, entries: entries)
     }
     
     private func appendToLog(path: String = UITM.logPath!, _ content: String) {

@@ -37,7 +37,7 @@ public class UITM {
             S3RegionType: AWSRegionType? = nil,
             S3BucketName: String? = nil,
             logPath: String = "./UITM/output"
-            ) throws {
+        ) throws {
         
         // if attachmentScreenShot, then s3 cognito and bucket info can't be nil
         if(attachScreenShot){
