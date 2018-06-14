@@ -12,7 +12,7 @@ import XCTest
 class SetUp : NSObject {
     override init() {
         try! UITM.config(
-            testRunKey:     "R13",
+            testRunKey:     "GOLM-R13",
             ATMBaseURL:     "https://jira.lblw.ca/rest/atm/1.0",
             ATMCredential:  "ZmVycmlzOmZlcnJpcw==",
             ATMENV:         "Mobile iOS",
@@ -23,7 +23,6 @@ class SetUp : NSObject {
         )
         
 //        XCTestObservationCenter.shared.addTestObserver(TMObserver())
-        
     }
 
 }

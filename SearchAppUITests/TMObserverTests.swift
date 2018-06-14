@@ -8,6 +8,8 @@
 
 import XCTest
 import AWSCognito
+import Alamofire
+import Alamofire_Synchronous
 
 public class XCTestCaseRunMock : XCTestCaseRun{
     var status :Bool = false
@@ -52,6 +54,22 @@ class S3Mock : S3Protocol {
     }
 }
 
+class SessionManagerMock : SessionManagerProtocol {
+    var parameters : [String : Any]?
+    var url: String?
+    var response : DataResponse<Any>?
+    
+    func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any> {
+        self.parameters = parameters
+        self.url = url as? String
+        
+        let httpResponse = HTTPURLResponse(url: try! url.asURL(), statusCode: 201, httpVersion: "HTTP/1.1", headerFields: nil)
+        let result = Result.success(["id":"493067"] as Any)
+        response = DataResponse(request: nil, response: httpResponse, data:nil, result: result)
+        return response!
+    }
+}
+
 
 class TMObserverTests: XCTestCase {
     let testCaseMock = XCTestCaseMock()
@@ -62,8 +80,26 @@ class TMObserverTests: XCTestCase {
         observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
     }
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Test Meta data of a failed test
+    func testTestSuiteWillStartAttachScreenShot() {
+        observer!.testSuiteWillStart(XCTestSuite.default)
+        XCTAssertEqual(S3Mock.authenticationCallCount, 1)
+    }
+
+    func testTestSuiteWillStartNotAttachScreenShot() {
+        UITM.attachScreenShot = false
+        observer!.testSuiteWillStart(XCTestSuite.default)
+        XCTAssertEqual(S3Mock.authenticationCallCount, 0)
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     // Test Meta data of a succeeded test
-    func testTestCaseDidFinishSuccess() {
+    func testTestCaseDidFinishAWSNetworkSuccess() {
+        
+//        observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
         
         testCaseMock.metaData.comments = "test comment"
         testCaseMock.metaData.testID = "T1"
@@ -76,25 +112,55 @@ class TMObserverTests: XCTestCase {
         XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
         XCTAssert(sessionManager.parameters!["comment"] as! String == "<br>test comment<br/>")
         XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 45200)
+        //find better way to determin network call passed
+        //Assert that nothing is output to log
         
     }
     
-    func testTestCaseDidFinishSaveLog() {
+    func testTestCaseDidFinishAWSNetworkFail() {
+        observer = TMObserver(sessionManager: sessionManager, S3Type: S3Mock.self)
+        
+        testCaseMock.metaData.comments = "test comment"
+        testCaseMock.metaData.testID = "T1"
+        (testCaseMock.testRun as! XCTestCaseRunMock).hasSucceeded = true
+        (testCaseMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
+        
+        observer!.testCaseDidFinish(testCaseMock)
+        
+        XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
+        XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
+        XCTAssert(sessionManager.parameters!["comment"] as! String == "<br>test comment<br/>")
+        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 45200)
+        //assert that failed test case information is logged
         
     }
-
-    // Test Meta data of a failed test
-    func testTestSuiteWillStartWithScreenShot() {
-        observer!.testSuiteWillStart(XCTestSuite.default)
-        XCTAssertEqual(S3Mock.authenticationCallCount, 1)
+    
+    func testTestCaseDidFinishWithNoTestID() {
+        
     }
-
-
-    func testTestSuiteWillStartNoScreenShot() {
-        UITM.attachScreenShot = false
-        observer!.testSuiteWillStart(XCTestSuite.default)
-        XCTAssertEqual(S3Mock.authenticationCallCount, 0)
+    
+    func testTestCaseDidFinishWithNoTestComments() {
+        
     }
+    
+    func testTestCaseDidFinishWithFailedTestStatus() {
+        
+    }
+    
+    func testTestCaseDidFinishWithInvalidTestRunKey() {
+        
+    }
+    
+    func testTestCaseDidFinishWithInvalidTestID() {
+        
+    }
+    
+    func testTestCaseDidFinishWithInvaliedATMCredentials() {
+        
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     func testTestCaseFailedNoScreenShot() {
         UITM.attachScreenShot = false
@@ -106,6 +172,10 @@ class TMObserverTests: XCTestCase {
         observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
         XCTAssertEqual(S3Mock.uploadImageWasCallCount, 1)
         XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/><img src=\'http:s3/uitm2/abcd.jpg\'>")
+    }
+    
+    func  testTestCaseFailedWithScreenShotappendToLog(){
+
     }
     
 }

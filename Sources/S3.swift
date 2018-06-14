@@ -13,23 +13,27 @@ import XCTest
 
 public protocol S3Protocol {
     static func authenticate(identityPoolId: String, regionType:AWSRegionType)
-    static func uploadImage(bucketName:String, imageURL: URL) -> String
+    static func uploadImage(bucketName:String, imageURL: URL) throws -> String
 }
 
-public class S3 : S3Protocol {
+class S3 : S3Protocol {
     
     //authtnticate using aws cognito
-    public static func authenticate(identityPoolId: String, regionType:AWSRegionType) {
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: regionType,
-                                                                identityPoolId:identityPoolId)
+    //depends on: AWSCognitoCredentialsProvider, AWSServiceConfiguration, AWSServiceManager
+    static func authenticate(identityPoolId: String, regionType:AWSRegionType) {
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: regionType,identityPoolId:identityPoolId)
         let configuration = AWSServiceConfiguration(region:regionType, credentialsProvider:credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
 
     //upload image to s3 bucket
-    public static func uploadImage(bucketName:String, imageURL: URL) -> String {
+    //depends on: AWSS3TransferManagerUploadRequest, AWSS3TransferManager, AWSExecutor
+    static func uploadImage(bucketName:String, imageURL: URL) throws -> String {
+        var uploadError:Error?
         var imageS3Address = ""
-        let uploadRequest = makeUploadRequest(bucketName: bucketName, imageURL: imageURL)
+        
+        var uploadRequest = AWSS3TransferManagerUploadRequest()!
+        uploadRequest = makeUploadRequest(bucketName: bucketName, imageURL: imageURL, uploadRequest: uploadRequest)
         
         let transferManager = AWSS3TransferManager.default()
         let expectation = XCTestExpectation(description: "upload image to s3")
@@ -37,10 +41,10 @@ public class S3 : S3Protocol {
 
                 if let error = task.error {
                     print("S3 uploading failed with error: \(error)")
+                    uploadError = error
                 }
-            
-                if task.result != nil {
-                    print("uploaded succesfully")
+                else {
+                    print("S3 uploaded succesfully")
                     imageS3Address = "https://s3.amazonaws.com/\(bucketName)/\(uploadRequest.key!)"
                 }
                 
@@ -49,11 +53,14 @@ public class S3 : S3Protocol {
         }
 
         XCTWaiter.wait(for: [expectation], timeout: 10.0)
+        if let error = uploadError {
+            throw error
+        }
         return imageS3Address
     }
     
-    private static func makeUploadRequest(bucketName:String, imageURL: URL) -> AWSS3TransferManagerUploadRequest {
-        let uploadRequest = AWSS3TransferManagerUploadRequest()!
+    private static func makeUploadRequest(bucketName:String, imageURL: URL, uploadRequest: AWSS3TransferManagerUploadRequest) -> AWSS3TransferManagerUploadRequest {
+        
         let imageName = imageURL.path.replacingOccurrences(of: "(.*)/", with: "", options: .regularExpression, range:nil)
         let imageType = imageURL.path.replacingOccurrences(of: "(.*).", with: "", options: .regularExpression, range:nil)
         uploadRequest.bucket = bucketName

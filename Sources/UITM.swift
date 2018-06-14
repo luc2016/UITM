@@ -24,7 +24,7 @@ public class UITM {
     static var S3RegionType: AWSRegionType?
     static var S3BucketName: String?
     static var testRunKey: String?
-    static var outputDirectory: String?
+    static var logPath: String?
 
     public class func config(
             testRunKey: String,
@@ -36,7 +36,7 @@ public class UITM {
             S3CognitoKey: String? = nil,
             S3RegionType: AWSRegionType? = nil,
             S3BucketName: String? = nil,
-            outputDirectory: String = "./UITM/output"
+            logPath: String = "./UITM/output"
             ) throws {
         
         // if attachmentScreenShot, then s3 cognito and bucket info can't be nil
@@ -55,7 +55,7 @@ public class UITM {
         UITM.S3CognitoKey = S3CognitoKey
         UITM.S3RegionType = S3RegionType
         UITM.S3BucketName = S3BucketName
-        UITM.outputDirectory = outputDirectory
+        UITM.logPath = logPath
                 
     }
 }

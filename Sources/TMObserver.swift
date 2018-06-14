@@ -27,13 +27,12 @@ extension Alamofire.SessionManager : SessionManagerProtocol {
     }
 }
 
-
 public class TMObserver : NSObject, XCTestObservation  {
     
     var sessionManager: SessionManagerProtocol
     var S3Service: S3Protocol.Type
     
-    public init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self ){
+    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, S3Type:S3Protocol.Type = S3.self ) {
         self.sessionManager = sessionManager
         S3Service = S3Type
     }
@@ -47,14 +46,16 @@ public class TMObserver : NSObject, XCTestObservation  {
         }
     }
 
-
     //hook for test finished
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case \(testCase.name) Finished")
         
         let request = makeATMRequest(testCase)
         let response = sessionManager.jsonResponse(request.url, method: .post, parameters: request.entries, headers: request.headers)
-        errorHandling(response)
+        if let error = response.error {
+            appendToLog("ATM upload result failed with error: \(error)!")
+            appendToLog("The faile testcase is: \(response.request!.description)!")
+        }
     }
     
     //hook for failed test case
@@ -64,44 +65,41 @@ public class TMObserver : NSObject, XCTestObservation  {
         if(UITM.attachScreenShot!) {
             let imagePath = NSTemporaryDirectory() + ProcessInfo.processInfo.globallyUniqueString + ".png"
             let imageURL = URL(fileURLWithPath: imagePath)
+            testCase.metaData.failureMessage = "<br>\(description)<br/>"
             
             takeScreenShot(fileURL:imageURL )
-            let s3address = S3Service.uploadImage(bucketName: UITM.S3BucketName!, imageURL: imageURL)
-            testCase.metaData.failureMessage = "<br>\(description)<br/><img src='\(s3address)'>"
+            
+            do {
+                let s3address = try S3Service.uploadImage(bucketName: UITM.S3BucketName!, imageURL: imageURL)
+                testCase.metaData.failureMessage += "<img src='\(s3address)'>"
+            }
+            catch {
+                appendToLog("S3 upload image failed with \(error)!")
+            }
         }
     }
     
-    private func makeATMRequest(_ testCase: XCTestCase) -> ATMRequest{
+    private func makeATMRequest(_ testCase: XCTestCase, testRunKey:String = UITM.testRunKey!, ATMBaseURL:String = UITM.ATMBaseURL!, ATMCredential: String = UITM.ATMCredential!, ATMEnv:String = UITM.ATMENV!, ATMStatus:(pass:String, fail:String) = UITM.ATMStatuses! ) -> ATMRequest {
         
-        let url = "\(UITM.ATMBaseURL!)/testrun/\(UITM.testRunKey!)/testcase/\(testCase.metaData.testID!)/testresult"
-        let headers = ["authorization": "Basic "+UITM.ATMCredential!]
+        let url = "\(ATMBaseURL)/testrun/\(testRunKey)/testcase/\(testCase.metaData.testID!)/testresult"
+        let headers = ["authorization": "Basic " + ATMCredential]
         
-        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
+        let testStatus =  (testCase.testRun?.hasSucceeded)! ? ATMStatus.pass : ATMStatus.fail
         let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
         let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
         let entries = [
             "status"        : testStatus,
-            "environment"   : UITM.ATMENV,
+            "environment"   : ATMEnv,
             "comment"       : comments,
-            "executionTime": testDuration
+            "executionTime" : testDuration
             ] as [String : Any]
         
         return  ATMRequest(url: url, headers: headers, entries: entries)
     }
     
-    private func errorHandling(_ response: DataResponse<Any>){
-        if let error = response.error{
-            print("Failed with error: \(error)")
-//            logFailedResults(fileName:"ErrorLog.txt",content: url)
-        }else{
-            print("Uploaded test result successfully")
-        }
-    }
-    
-    private func logFailedResults(fileName:String,content: String) {
-        
-        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+    private func appendToLog(path: String = UITM.logPath!, _ content: String) {
+        let url = URL(fileURLWithPath: path).appendingPathComponent("log")
         let data = Data(content.utf8)
         do {
             try data.write(to: url, options: .atomic)
