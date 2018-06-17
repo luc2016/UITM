@@ -22,7 +22,7 @@ public class S3 : CloudStorage {
     var regionType: AWSRegionType
     var bucketName: String
     
-    init(cognitoKey:String = "", regionType:AWSRegionType = .USEast1, bucketName:String = "") {
+    public init(cognitoKey:String = "", regionType:AWSRegionType = .USEast1, bucketName:String = "") {
         self.cognitoKey = cognitoKey
         self.regionType = regionType
         self.bucketName = bucketName
@@ -55,7 +55,7 @@ public class S3 : CloudStorage {
                 }
                 else {
                     print("S3 uploaded succesfully")
-                    imageS3Address = "https://s3.amazonaws.com/\(self.config.bucketName)/\(uploadRequest.key!)"
+                    imageS3Address = "https://s3.amazonaws.com/\(self.bucketName)/\(uploadRequest.key!)"
                 }
                 
                 expectation.fulfill()

@@ -6,34 +6,35 @@
 //
 
 import Foundation
-import AWSS3
-import AWSCognito
+
+enum ConfigError:Error{
+    case NoCloudServiceError
+}
 
 public class UITM {
     
     static var TMService: TestManagement?
-    static var TMConfig: TMConfig?
     static var attachScreenShot: Bool?
     static var CSService: CloudStorage?
     static var logPath: String?
     
     public class func config(
-            TMConfig:           TMConfig,
+            TMService:          TestManagement,
             attachScreenShot:   Bool,
-            CSConfig:           CSConfig,
+            CSService:          CloudStorage?,
             logPath:            String = "./UITM/output"
-        ) {
-        UITM.TMConfig = TMConfig
+        ) throws {
+        
+        UITM.TMService = TMService
         UITM.attachScreenShot = attachScreenShot
-        UITM.CSConfig = CSConfig
+        UITM.CSService = CSService
         UITM.logPath = logPath
         
-        if CSConfig is S3Config {
-            UITM.CSService = S3()
-        }
-        
-        if TMConfig is ATMConfig {
-            UITM.TMService = ATM()
+        if attachScreenShot {
+            guard CSService != nil else {
+                UITM.CSService = S3()
+                throw ConfigError.NoCloudServiceError
+            }
         }
     }
     

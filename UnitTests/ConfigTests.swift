@@ -10,103 +10,100 @@ import XCTest
 
 class ConfigTests: XCTestCase {
     
-    //test singleton variables are set properly
     func testConfigurationWithScreenShot() throws {
         
-        let s3config = S3Config(
+        let atm = ATM(
+            baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
+            credentials:"ZmVycmlzOmZlcnJpcw==",
+            env:        "Mobile iOS",
+            testRunKey: "GOLM-R13",
+            statuses:   (pass: "Pass", fail: "Fail")
+        )
+        
+        let s3 = S3(
             cognitoKey: "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd",
             regionType: .USEast1,
             bucketName: "uitm2"
         )
-        
-        let atmConfig = ATMConfig(
-            baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
-            credentials:"ZmVycmlzOmZlcnJpcw==",
-            statuses:   (pass: "Pass", fail: "Fail"),
-            env:        "Mobile iOS",
-            testRunKey: "GOLM-R13"
-        )
-        
-        UITM.config(
-            TMConfig:           atmConfig,
+
+        let result = try? UITM.config(
+            TMService:          atm,
             attachScreenShot:   true,
-            CSConfig:           s3config,
+            CSService:          s3,
             logPath:            "./output"
         )
 
-        let tmConfig = UITM.TMConfig as! ATMConfig
-        let csConfig = UITM.CSConfig as! S3Config
-        XCTAssertEqual(tmConfig.testRunKey,     "GOLM-R13", "Test Run key is not set properly.")
-        XCTAssertEqual(tmConfig.baseURL,        "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
-        XCTAssertEqual(tmConfig.credentials,    "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
-        XCTAssertEqual(tmConfig.env,            "Mobile iOS", "ATM environment is not set properly.")
+        let tmService = UITM.TMService as! ATM
+        let csService = UITM.CSService as! S3
+        XCTAssertEqual(tmService.testRunKey,    "GOLM-R13", "Test Run key is not set properly.")
+        XCTAssertEqual(tmService.baseURL,       "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
+        XCTAssertEqual(tmService.credentials,   "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
+        XCTAssertEqual(tmService.env,           "Mobile iOS", "ATM environment is not set properly.")
         XCTAssertEqual(UITM.attachScreenShot,   true, "Attach screen shot is not set properly.")
-        XCTAssertEqual(csConfig.cognitoKey,     "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd", "Attach screen shot is not set properly.")
-        XCTAssertEqual(csConfig.regionType,     .USEast1, "Attach screen shot is not set properly.")
-        XCTAssertEqual(csConfig.bucketName,     "uitm2", "Attach screen shot is not set properly.")
+        XCTAssertEqual(csService.cognitoKey,    "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd", "Attach screen shot is not set properly.")
+        XCTAssertEqual(csService.regionType,    .USEast1, "Attach screen shot is not set properly.")
+        XCTAssertEqual(csService.bucketName,    "uitm2", "Attach screen shot is not set properly.")
         XCTAssertEqual(UITM.logPath,            "./output", "log path is not set properly.")
+        XCTAssertNotNil(result,                 "Config function shouldn't throw error")
     }
     
-    //test if attachmentScreenshot is true, and no S3 parameter set, then function will throw an error
+    //test if attachmentScreenshot is false, and no cloud storage is set
     func testConfigurationWithoutScreenShot() throws {
         
-        let atmConfig = ATMConfig(
+        let atm = ATM(
             baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
             credentials:"ZmVycmlzOmZlcnJpcw==",
-            statuses:   (pass: "Pass", fail: "Fail"),
             env:        "Mobile iOS",
-            testRunKey: "GOLM-R13"
+            testRunKey: "GOLM-R13",
+            statuses:   (pass: "Pass", fail: "Fail")
         )
-        
-        UITM.config(
-            TMConfig:           atmConfig,
+
+        let result = try? UITM.config(
+            TMService:          atm,
             attachScreenShot:   false,
-            CSConfig:           S3Config()
+            CSService:          nil
         )
-        
-        let tmConfig = UITM.TMConfig as! ATMConfig
-    
-        XCTAssertEqual(tmConfig.testRunKey,     "GOLM-R13", "Test Run key is not set properly.")
-        XCTAssertEqual(tmConfig.baseURL,        "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
-        XCTAssertEqual(tmConfig.credentials,    "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
-        XCTAssertEqual(tmConfig.env,            "Mobile iOS", "ATM environment is not set properly.")
+
+        let tmService = UITM.TMService as! ATM
+        XCTAssertEqual(tmService.testRunKey,    "GOLM-R13", "Test Run key is not set properly.")
+        XCTAssertEqual(tmService.baseURL,       "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
+        XCTAssertEqual(tmService.credentials,   "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
+        XCTAssertEqual(tmService.env,           "Mobile iOS", "ATM environment is not set properly.")
         XCTAssertEqual(UITM.attachScreenShot,   false, "Attach screen shot is not set properly.")
-        XCTAssert(UITM.CSConfig == nil, "")
         XCTAssertEqual(UITM.logPath,            "./UITM/output", "log path is not set properly.")
+        XCTAssertNotNil(result,                 "Config function shouldn't throw error")
         
     }
     
-    //test singleton variables are set properly
-    func testConfigurationWithScreenShotAndNoCSConfig() throws {
+    //test if attachmentScreenshot is false, and no cloud storage is set, then config will throw an error
+    func testConfigurationWithScreenShotAndNoCS() throws {
         
-        let atmConfig = ATMConfig(
+        let atm = ATM(
             baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
             credentials:"ZmVycmlzOmZlcnJpcw==",
-            statuses:   (pass: "Pass", fail: "Fail"),
             env:        "Mobile iOS",
-            testRunKey: "GOLM-R13"
+            testRunKey: "GOLM-R13",
+            statuses:   (pass: "Pass", fail: "Fail")
         )
-        let s3 = S3Config()
         
-    
-        
-        UITM.config(
-            TMConfig:           atmConfig,
+        let result = try? UITM.config(
+            TMService:          atm,
             attachScreenShot:   true,
-            CSConfig:           s3
+            CSService:          nil
         )
         
-        let tmConfig = UITM.TMConfig as! ATMConfig
-        let csConfig = UITM.CSConfig as! S3Config
-//        XCTAssertEqual(tmConfig.testRunKey,     "GOLM-R13", "Test Run key is not set properly.")
-//        XCTAssertEqual(tmConfig.baseURL,        "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
-//        XCTAssertEqual(tmConfig.credentials,    "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
-//        XCTAssertEqual(tmConfig.env,            "Mobile iOS", "ATM environment is not set properly.")
-//        XCTAssertEqual(UITM.attachScreenShot,   true, "Attach screen shot is not set properly.")
-//        XCTAssertEqual(csConfig.cognitoKey,     "us-east-1:738ab02b-76f4-4d6c-87ef-e8847f97f6cd", "Attach screen shot is not set properly.")
-//        XCTAssertEqual(csConfig.regionType,     .USEast1, "Attach screen shot is not set properly.")
-//        XCTAssertEqual(csConfig.bucketName,     "uitm2", "Attach screen shot is not set properly.")
-//        XCTAssertEqual(UITM.logPath,            "./output", "log path is not set properly.")
+        let tmService = UITM.TMService as! ATM
+        let csService = UITM.CSService as! S3
+        XCTAssertEqual(tmService.testRunKey,    "GOLM-R13", "Test Run key is not set properly.")
+        XCTAssertEqual(tmService.baseURL,       "https://jira.lblw.ca/rest/atm/1.0", "ATM base url is not set properly.")
+        XCTAssertEqual(tmService.credentials,   "ZmVycmlzOmZlcnJpcw==", "ATM credential is not set properly.")
+        XCTAssertEqual(tmService.env,           "Mobile iOS", "ATM environment is not set properly.")
+        XCTAssertEqual(UITM.attachScreenShot,   true, "Attach screen shot is not set properly.")
+        XCTAssertEqual(csService.cognitoKey,    "",         "cloud service is not using default value.")
+        XCTAssertEqual(csService.regionType,    .USEast1,   "cloud service is not using default value.")
+        XCTAssertEqual(csService.bucketName,    "",         "cloud service is not using default value.")
+        XCTAssertEqual(UITM.logPath,            "./UITM/output", "log path is not using default value.")
+        XCTAssertNil(result,                    "Config function should thow an error.")
     }
     
 }

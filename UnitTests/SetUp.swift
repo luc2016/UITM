@@ -12,12 +12,12 @@ import XCTest
 class SetUp : NSObject {
     override init() {
         
-        let atmConfig = ATMConfig(
+        let atm = ATM(
             baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
             credentials:"ZmVycmlzOmZlcnJpcw==",
-            statuses:   (pass: "Pass", fail: "Fail"),
             env:        "Mobile iOS",
-            testRunKey: "GOLM-R13"
+            testRunKey: "GOLM-R13",
+            statuses:   (pass: "Pass", fail: "Fail")
         )
         
         let s3 = S3(
@@ -26,8 +26,8 @@ class SetUp : NSObject {
             bucketName: "uitm2"
         )
         
-        UITM.config(
-            TMConfig:           atmConfig,
+        try? UITM.config(
+            TMService:           atm,
             attachScreenShot:   true,
             CSService:           s3,
             logPath:            "./UITM/output"
