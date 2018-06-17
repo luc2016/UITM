@@ -11,38 +11,34 @@ import AWSS3
 import AWSCognito
 import XCTest
 
-public protocol CSConfig{}
-
-public struct S3Config: CSConfig {
-    var cognitoKey: String = ""
-    var regionType: AWSRegionType = .USEast1
-    var bucketName: String = ""
-}
-
-protocol CloudStorage {
+public protocol CloudStorage {
     func authenticate()
     func uploadImage(imageURL: URL) throws -> String
 }
 
-class S3 : CloudStorage {
+public class S3 : CloudStorage {
     
-    let config : S3Config
+    var cognitoKey: String
+    var regionType: AWSRegionType
+    var bucketName: String
     
-    init(_ config:CSConfig){
-        self.config = config as! S3Config
+    init(cognitoKey:String = "", regionType:AWSRegionType = .USEast1, bucketName:String = "") {
+        self.cognitoKey = cognitoKey
+        self.regionType = regionType
+        self.bucketName = bucketName
     }
     
     //authtnticate using aws cognito
     //depends on: AWSCognitoCredentialsProvider, AWSServiceConfiguration, AWSServiceManager
-    func authenticate() {
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: config.regionType, identityPoolId: config.cognitoKey)
-        let configuration = AWSServiceConfiguration(region:config.regionType, credentialsProvider:credentialsProvider)
+    public func authenticate() {
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: regionType, identityPoolId: cognitoKey)
+        let configuration = AWSServiceConfiguration(region:regionType, credentialsProvider:credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
 
     //upload image to s3 bucket
     //depends on: AWSS3TransferManagerUploadRequest, AWSS3TransferManager, AWSExecutor
-    func uploadImage(imageURL: URL) throws -> String {
+    public func uploadImage(imageURL: URL) throws -> String {
         var uploadError:Error?
         var imageS3Address = ""
         
@@ -77,7 +73,7 @@ class S3 : CloudStorage {
         
         let imageName = imageURL.path.replacingOccurrences(of: "(.*)/", with: "", options: .regularExpression, range:nil)
         let imageType = imageURL.path.replacingOccurrences(of: "(.*).", with: "", options: .regularExpression, range:nil)
-        uploadRequest.bucket = config.bucketName
+        uploadRequest.bucket = bucketName
         uploadRequest.key = imageName
         uploadRequest.body = imageURL
         uploadRequest.contentType = "image/\(imageType)"

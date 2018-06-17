@@ -61,7 +61,7 @@ class ConfigTests: XCTestCase {
         UITM.config(
             TMConfig:           atmConfig,
             attachScreenShot:   false,
-            CSConfig:           nil
+            CSConfig:           S3Config()
         )
         
         let tmConfig = UITM.TMConfig as! ATMConfig

@@ -10,15 +10,15 @@ import Foundation
 import Alamofire
 import Alamofire_Synchronous
 
-public protocol TMConfig {}
-
-public struct ATMConfig: TMConfig{
-    var baseURL:    String
-    var credentials:String
-    var statuses:   (pass:String, fail:String)
-    var env:        String
-    var testRunKey: String
-}
+//public protocol TMConfig {}
+//
+//public struct ATMConfig: TMConfig{
+//    var baseURL:    String
+//    var credentials:String
+//    var statuses:   (pass:String, fail:String)
+//    var env:        String
+//    var testRunKey: String
+//}
 
 protocol TestManagement {
     func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any>
@@ -37,11 +37,21 @@ extension Alamofire.SessionManager : SessionManagerProtocol {
 class ATM: TestManagement {
     
     var sessionManager: SessionManagerProtocol
-    var config: ATMConfig
+//    var config: ATMConfig = UITM.TMConfig as! ATMConfig
+    var baseURL:    String
+    var credentials:String
+    var statuses:   (pass:String, fail:String)
+    var env:        String
+    var testRunKey: String
 
-    init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default, config: TMConfig) {
+    init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default, baseURL:String, credentials:String,env:String,testRunKey:String,statuses:(pass:String, fail:String)) {
         self.sessionManager = sessionManager
-        self.config = config as! ATMConfig
+//        self.config = config as! ATMConfig
+        self.baseURL = baseURL
+        self.credentials = credentials
+        self.statuses = statuses
+        self.env = env
+        self.testRunKey = testRunKey
     }
     
     func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any> {

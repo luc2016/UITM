@@ -15,13 +15,17 @@ import Alamofire_Synchronous
 
 public class TMObserver : NSObject, XCTestObservation  {
     
-    var TMService: TestManagement
-    var CSService: CloudStorage
+//    var TMService: TestManagement
+//    var CSService: CloudStorage
+//
+//    init(TM: TestManagement = UITM.TMService!, CS:CloudStorage = UITM.CSService! ) {
+//        TMService = TM
+//        CSService = CS
+//    }
     
-    init(TM: TestManagement = ATM(config: UITM.TMConfig!), CS:CloudStorage = S3(UITM.CSConfig!) ) {
-        TMService = TM
-        CSService = CS
-    }
+    var TMService = UITM.TMService!
+    var CSService = UITM.CSService!
+
     
     public func testSuiteWillStart(_ testSuite: XCTestSuite) {
         print("test suite \(testSuite.name) will start.")

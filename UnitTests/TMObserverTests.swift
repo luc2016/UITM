@@ -77,7 +77,7 @@ class TMObserverTests: XCTestCase {
     var observer : TMObserver?
     
     override func setUp() {
-        observer = TMObserver(TM: ATM(config:UITM.TMConfig!), CS: S3Mock())
+        observer = TMObserver(CS: S3Mock())
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
