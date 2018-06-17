@@ -18,10 +18,10 @@ public class TMObserver : NSObject, XCTestObservation  {
 //    var TMService: TestManagement
 //    var CSService: CloudStorage
 //
-//    init(TM: TestManagement = UITM.TMService!, CS:CloudStorage = UITM.CSService! ) {
-//        TMService = TM
-//        CSService = CS
-//    }
+    init(TM: TestManagement, CS:CloudStorage = UITM.CSService! ) {
+        TMService = TM
+        CSService = CS
+    }
     
     var TMService = UITM.TMService!
     var CSService = UITM.CSService!
