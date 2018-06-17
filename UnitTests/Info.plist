@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPrincipalClass</key>
-	<string>SearchAppUITests.SetUp</string>
+	<string>UnitTests.SetUp</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

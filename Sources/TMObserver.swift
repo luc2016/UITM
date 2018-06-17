@@ -11,22 +11,24 @@ import XCTest
 import Alamofire
 import Alamofire_Synchronous
 
+
+
 public class TMObserver : NSObject, XCTestObservation  {
     
-    var sessionManager: SessionManagerProtocol
-    var storageService: CloudStorageProtocol.Type
+    var TMService: TestManagement
+    var CSService: CloudStorage
     
-    init(sessionManager: SessionManagerProtocol = Alamofire.SessionManager.default, storageType:CloudStorageProtocol.Type = S3.self ) {
-        self.sessionManager = sessionManager
-        storageService = storageType
+    init(TM: TestManagement = ATM(config: UITM.TMConfig!), CS:CloudStorage = S3(UITM.CSConfig!) ) {
+        TMService = TM
+        CSService = CS
     }
     
     public func testSuiteWillStart(_ testSuite: XCTestSuite) {
         print("test suite \(testSuite.name) will start.")
         
-        //authtnticate using aws cognito
+        //authtnticate cloud storage service
         if(UITM.attachScreenShot!) {
-            storageService.authenticate(identityPoolId: UITM.S3CognitoKey!, regionType: UITM.S3RegionType!)
+            CSService.authenticate()
         }
     }
 
@@ -34,11 +36,11 @@ public class TMObserver : NSObject, XCTestObservation  {
     public func testCaseDidFinish(_ testCase: XCTestCase) {
         print("test case \(testCase.name) Finished")
         
-        let testStatus =  (testCase.testRun?.hasSucceeded)! ? UITM.ATMStatuses!.pass : UITM.ATMStatuses!.fail
-        let testDuration = Int(testCase.testRun?.testDuration as! Double * 1000)
+        let testStatus =  (testCase.testRun?.hasSucceeded)!
+        let testDuration = testCase.testRun?.testDuration
         let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
-        let response = ATM().uploadTestResult(testId:testCase.metaData.testID!, testComments:comments, testStatus:testStatus, testDuration:testDuration)
+        let response = TMService.uploadTestResult(testId:testCase.metaData.testID!, testComments:comments, testStatus:testStatus, testDuration:testDuration!)
         if let error = response.error {
             appendToLog("Upload result failed with error: \(error)!")
             appendToLog("The faile testcase is: \(response.request!.description)!")
@@ -47,17 +49,18 @@ public class TMObserver : NSObject, XCTestObservation  {
     
     //hook for failed test case
     public func testCase(_ testCase: XCTestCase, didFailWithDescription description: String, inFile filePath: String?, atLine lineNumber: Int) {
-        print("test case \(testCase.name) failed")
         
+        print("test case \(testCase.name) failed")
+        testCase.metaData.failureMessage = "<br>\(description)<br/>"
+        
+        //if choose to attach screen shot, then take screenshot and upload to cloud storage
         if(UITM.attachScreenShot!) {
             let imagePath = NSTemporaryDirectory() + ProcessInfo.processInfo.globallyUniqueString + ".png"
             let imageURL = URL(fileURLWithPath: imagePath)
-            testCase.metaData.failureMessage = "<br>\(description)<br/>"
-            
             takeScreenShot(fileURL:imageURL )
             
             do {
-                let s3address = try storageService.uploadImage(bucketName: UITM.S3BucketName!, imageURL: imageURL)
+                let s3address = try CSService.uploadImage(imageURL: imageURL)
                 testCase.metaData.failureMessage += "<img src='\(s3address)'>"
             }
             catch {

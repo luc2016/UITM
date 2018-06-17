@@ -10,6 +10,20 @@ import Foundation
 import Alamofire
 import Alamofire_Synchronous
 
+public protocol TMConfig {}
+
+public struct ATMConfig: TMConfig{
+    var baseURL:    String
+    var credentials:String
+    var statuses:   (pass:String, fail:String)
+    var env:        String
+    var testRunKey: String
+}
+
+protocol TestManagement {
+    func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any>
+}
+
 public protocol SessionManagerProtocol {
     func jsonResponse(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?) -> DataResponse<Any>
 }
@@ -20,19 +34,21 @@ extension Alamofire.SessionManager : SessionManagerProtocol {
     }
 }
 
-class ATM {
+class ATM: TestManagement {
     
     var sessionManager: SessionManagerProtocol
+    var config: ATMConfig
 
-    init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default) {
+    init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default, config: TMConfig) {
         self.sessionManager = sessionManager
+        self.config = config as! ATMConfig
     }
     
-    func uploadTestResult(testId:String, testComments:String, testStatus:String, testDuration:Int, testRunKey:String = UITM.testRunKey!, ATMBaseURL:String = UITM.ATMBaseURL!, ATMCredential: String = UITM.ATMCredential!, ATMEnv:String = UITM.ATMENV!) ->  DataResponse<Any> {
+    func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any> {
         
-        let url = "\(ATMBaseURL)/testrun/\(testRunKey)/testcase/\(testId)/testresult"
-        let headers = ["authorization": "Basic " + ATMCredential]
-        let entries = ["status": testStatus, "environment": ATMEnv, "comment": testComments, "executionTime": testDuration] as [String : Any]
+        let url = "\(config.baseURL)/testrun/\(config.testRunKey)/testcase/\(testId)/testresult"
+        let headers = ["authorization": "Basic " + config.credentials]
+        let entries = ["status": testStatus ? config.statuses.pass : config.statuses.fail, "environment": config.env, "comment": testComments, "executionTime": Int(testDuration as! Double * 1000)] as [String : Any]
         
         return sessionManager.jsonResponse(url, method: .post, parameters: entries, headers: headers)
     }
