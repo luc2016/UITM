@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cfbb273-9a42-4c6e-96b4-9793de257eb5" name="Default" comment="" />
+    <list default="true" id="1cfbb273-9a42-4c6e-96b4-9793de257eb5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UnitTests/TMObserverInitTests.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Sources/UITM.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UnitTests/ConfigTests.swift" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sources/S3.swift" afterPath="$PROJECT_DIR$/Sources/S3.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sources/TMObserver.swift" afterPath="$PROJECT_DIR$/Sources/TMObserver.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UITM.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnitTests/SetUp.swift" afterPath="$PROJECT_DIR$/UnitTests/SetUp.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnitTests/TMObserverTests.swift" afterPath="$PROJECT_DIR$/UnitTests/TMObserverTests.swift" />
+    </list>
     <ignored path="ui_report.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -148,6 +157,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UITM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnitTests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,18 +364,18 @@
       <workItem from="1524017949345" duration="16731000" />
       <workItem from="1524486991677" duration="217000" />
       <workItem from="1525462895523" duration="7619000" />
-      <workItem from="1528337356961" duration="664000" />
+      <workItem from="1528337356961" duration="715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30469000" />
+    <option name="totallyTimeSpent" value="30520000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

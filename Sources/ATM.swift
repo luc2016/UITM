@@ -33,7 +33,7 @@ public class ATM: TestManagement {
     var env:        String
     var testRunKey: String
 
-    init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default, baseURL:String, credentials:String,env:String,testRunKey:String,statuses:(pass:String, fail:String) = (pass: "Pass", fail: "Fail")) {
+    public init(sessionManager:SessionManagerProtocol = Alamofire.SessionManager.default, baseURL:String, credentials:String, env:String, testRunKey:String, statuses:(pass:String, fail:String) = (pass: "Pass", fail: "Fail")) {
         self.sessionManager = sessionManager
         self.baseURL = baseURL
         self.credentials = credentials

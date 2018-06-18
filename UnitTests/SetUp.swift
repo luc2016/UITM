@@ -25,15 +25,10 @@ class SetUp : NSObject {
             regionType: .USEast1,
             bucketName: "uitm2"
         )
-        
-        try? UITM.config(
-            TMService:           atm,
-            attachScreenShot:   true,
-            CSService:           s3,
-            logPath:            "./UITM/output"
-        )
-        
-//        XCTestObservationCenter.shared.addTestObserver(TMObserver())
+
+        let observer = try? TMObserver(TMService:atm, attachScreenShot:true, CSService: s3, logPath: "./UITM/output")
+        XCTAssertNotNil(observer, "Observer is not initialized properly.")
+//        XCTestObservationCenter.shared.addTestObserver(observer)
     }
 
 }

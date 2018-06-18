@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1F10B9CF20D2BCF40018BD09 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10B9CD20D2BCF40018BD09 /* ATM.swift */; };
+		1F381C0820D75CE90070B3CB /* ATMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F381C0720D75CE90070B3CB /* ATMTests.swift */; };
 		1F461EEB20A37B00003E1747 /* TMObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */; };
 		1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADF50D20866C840015C269 /* TMObserver.swift */; };
 		1F461EEE20A37BF9003E1747 /* S3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BB8C7209E4DAC00F3F713 /* S3.swift */; };
 		1F62EF6520C7243200AA9DDC /* MetaDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F62EF6420C7243200AA9DDC /* MetaDataTests.swift */; };
-		1F894BC620B85CFB00814571 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F894BC520B85CFB00814571 /* ConfigTests.swift */; };
-		1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219C20A90970000EFEC9 /* UITM.swift */; };
+		1F894BC620B85CFB00814571 /* TMObserverInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F894BC520B85CFB00814571 /* TMObserverInitTests.swift */; };
 		1FBD21A020A91576000EFEC9 /* SetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219F20A91576000EFEC9 /* SetUp.swift */; };
 		1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD219A20A90968000EFEC9 /* Extensions.swift */; };
-		1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD945920AB6E81004C5F16 /* Helper.swift */; };
 		A575A13AF6EDD70BB3BC8127 /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57D3882EF059CB9D6A46CC7 /* Pods_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,16 +24,15 @@
 		109B0797AFA1469EA00F73D3 /* Pods-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F10B9CD20D2BCF40018BD09 /* ATM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
 		1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserverTests.swift; sourceTree = "<group>"; };
+		1F381C0720D75CE90070B3CB /* ATMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMTests.swift; sourceTree = "<group>"; };
 		1F461EDB20A33A21003E1747 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F461EE120A33A21003E1747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F4BB8C7209E4DAC00F3F713 /* S3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3.swift; sourceTree = "<group>"; };
 		1F62EF6420C7243200AA9DDC /* MetaDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataTests.swift; sourceTree = "<group>"; };
-		1F894BC520B85CFB00814571 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		1F894BC520B85CFB00814571 /* TMObserverInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserverInitTests.swift; sourceTree = "<group>"; };
 		1FADF50D20866C840015C269 /* TMObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMObserver.swift; sourceTree = "<group>"; };
 		1FBD219A20A90968000EFEC9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		1FBD219C20A90970000EFEC9 /* UITM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITM.swift; sourceTree = "<group>"; };
 		1FBD219F20A91576000EFEC9 /* SetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUp.swift; sourceTree = "<group>"; };
-		1FFD945920AB6E81004C5F16 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F57D3882EF059CB9D6A46CC7 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -54,10 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				1FADF50D20866C840015C269 /* TMObserver.swift */,
-				1FBD219C20A90970000EFEC9 /* UITM.swift */,
 				1FBD219A20A90968000EFEC9 /* Extensions.swift */,
 				1F4BB8C7209E4DAC00F3F713 /* S3.swift */,
-				1FFD945920AB6E81004C5F16 /* Helper.swift */,
 				1F10B9CD20D2BCF40018BD09 /* ATM.swift */,
 			);
 			path = Sources;
@@ -66,8 +62,9 @@
 		1F461EDE20A33A21003E1747 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F381C0720D75CE90070B3CB /* ATMTests.swift */,
 				1F62EF6420C7243200AA9DDC /* MetaDataTests.swift */,
-				1F894BC520B85CFB00814571 /* ConfigTests.swift */,
+				1F894BC520B85CFB00814571 /* TMObserverInitTests.swift */,
 				1F1D1EFD208FB32A00497056 /* TMObserverTests.swift */,
 				1F461EE120A33A21003E1747 /* Info.plist */,
 				1FBD219F20A91576000EFEC9 /* SetUp.swift */,
@@ -248,13 +245,12 @@
 				1FBD21A020A91576000EFEC9 /* SetUp.swift in Sources */,
 				1F461EEB20A37B00003E1747 /* TMObserverTests.swift in Sources */,
 				1F461EEC20A37BEE003E1747 /* TMObserver.swift in Sources */,
-				1FBD219E20A91031000EFEC9 /* UITM.swift in Sources */,
-				1F894BC620B85CFB00814571 /* ConfigTests.swift in Sources */,
+				1F894BC620B85CFB00814571 /* TMObserverInitTests.swift in Sources */,
 				1F62EF6520C7243200AA9DDC /* MetaDataTests.swift in Sources */,
 				1F461EEE20A37BF9003E1747 /* S3.swift in Sources */,
+				1F381C0820D75CE90070B3CB /* ATMTests.swift in Sources */,
 				1FBD21A120A9B074000EFEC9 /* Extensions.swift in Sources */,
 				1F10B9CF20D2BCF40018BD09 /* ATM.swift in Sources */,
-				1FFD945A20AB6E81004C5F16 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

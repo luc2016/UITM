@@ -22,7 +22,7 @@ public class S3 : CloudStorage {
     var regionType: AWSRegionType
     var bucketName: String
     
-    public init(cognitoKey:String = "", regionType:AWSRegionType = .USEast1, bucketName:String = "") {
+    public init(cognitoKey:String, regionType:AWSRegionType, bucketName:String) {
         self.cognitoKey = cognitoKey
         self.regionType = regionType
         self.bucketName = bucketName

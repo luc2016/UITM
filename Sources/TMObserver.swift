@@ -11,28 +11,37 @@ import XCTest
 import Alamofire
 import Alamofire_Synchronous
 
-
+enum InitError:Error{
+    case noCloudService
+}
 
 public class TMObserver : NSObject, XCTestObservation  {
     
-//    var TMService: TestManagement
-//    var CSService: CloudStorage
-//
-    init(TM: TestManagement, CS:CloudStorage = UITM.CSService! ) {
-        TMService = TM
-        CSService = CS
-    }
+    var TMService: TestManagement
+    var CSService: CloudStorage?
+    var attachScreenShot: Bool
+    var logPath: String
+
+   public init(TMService: TestManagement, attachScreenShot:Bool, CSService:CloudStorage?, logPath:String = "./UITM/output") throws {
+        self.TMService = TMService
+        self.CSService = CSService
+        self.attachScreenShot = attachScreenShot
+        self.logPath = logPath
     
-    var TMService = UITM.TMService!
-    var CSService = UITM.CSService!
+        if attachScreenShot{
+            guard CSService != nil else {
+                throw InitError.noCloudService
+            }
+        }
+    }
 
     
     public func testSuiteWillStart(_ testSuite: XCTestSuite) {
         print("test suite \(testSuite.name) will start.")
         
         //authtnticate cloud storage service
-        if(UITM.attachScreenShot!) {
-            CSService.authenticate()
+        if(attachScreenShot) {
+            CSService!.authenticate()
         }
     }
 
@@ -48,6 +57,8 @@ public class TMObserver : NSObject, XCTestObservation  {
         if let error = response.error {
             appendToLog("Upload result failed with error: \(error)!")
             appendToLog("The faile testcase is: \(response.request!.description)!")
+        } else{
+            appendToLog("Upload result successed for test case: \(testCase.metaData.testID!)!")
         }
     }
     
@@ -58,13 +69,13 @@ public class TMObserver : NSObject, XCTestObservation  {
         testCase.metaData.failureMessage = "<br>\(description)<br/>"
         
         //if choose to attach screen shot, then take screenshot and upload to cloud storage
-        if(UITM.attachScreenShot!) {
+        if(attachScreenShot) {
             let imagePath = NSTemporaryDirectory() + ProcessInfo.processInfo.globallyUniqueString + ".png"
             let imageURL = URL(fileURLWithPath: imagePath)
-            takeScreenShot(fileURL:imageURL )
+            takeScreenShot(fileURL:imageURL)
             
             do {
-                let s3address = try CSService.uploadImage(imageURL: imageURL)
+                let s3address = try CSService!.uploadImage(imageURL: imageURL)
                 testCase.metaData.failureMessage += "<img src='\(s3address)'>"
             }
             catch {
@@ -73,13 +84,23 @@ public class TMObserver : NSObject, XCTestObservation  {
         }
     }
     
-    private func appendToLog(path: String = UITM.logPath!, _ content: String) {
-        let url = URL(fileURLWithPath: path).appendingPathComponent("log")
+    private func appendToLog(_ content: String) {
+        let url = URL(fileURLWithPath: logPath).appendingPathComponent("log")
         let data = Data(content.utf8)
         do {
             try data.write(to: url, options: .atomic)
         } catch {
             print(error)
+        }
+    }
+    
+    private func takeScreenShot(fileURL: URL) {
+        let screenShot: XCUIScreenshot = XCUIScreen.main.screenshot()
+        let myImage = screenShot.pngRepresentation
+        do {
+            try myImage.write(to: fileURL, options: .atomic)
+        } catch {
+            XCTAssert(false, "Was not able to save screen captured!")
         }
     }
 
