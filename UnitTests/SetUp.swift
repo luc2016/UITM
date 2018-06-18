@@ -26,7 +26,6 @@ class SetUp : NSObject {
             bucketName: "uitm2"
         )
 
-
         let observer = try? TMObserver(TMService:atm, attachScreenShot:true, CSService: s3, logPath: "./UITM/output")
         XCTAssertNotNil(observer, "Observer is not initialized properly.")
 //        XCTestObservationCenter.shared.addTestObserver(observer)
