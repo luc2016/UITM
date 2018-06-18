@@ -11,7 +11,7 @@ import Alamofire
 import Alamofire_Synchronous
 
 public protocol TestManagement {
-    func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any>
+    func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:Double) ->  DataResponse<Any>
 }
 
 public protocol SessionManagerProtocol {
@@ -42,11 +42,11 @@ public class ATM: TestManagement {
         self.statuses = statuses
     }
     
-    public func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:TimeInterval) ->  DataResponse<Any> {
+    public func uploadTestResult(testId:String, testComments:String, testStatus:Bool, testDuration:Double) ->  DataResponse<Any> {
         
         let url = "\(baseURL)/testrun/\(testRunKey)/testcase/\(testId)/testresult"
         let headers = ["authorization": "Basic " + credentials]
-        let entries = ["status": testStatus ? statuses.pass : statuses.fail, "environment": env, "comment": testComments, "executionTime": Int(testDuration as! Double * 1000)] as [String : Any]
+        let entries = ["status": testStatus ? statuses.pass : statuses.fail, "environment": env, "comment": testComments, "executionTime": Int(testDuration * 1000)] as [String : Any]
         
         return sessionManager.jsonResponse(url, method: .post, parameters: entries, headers: headers)
     }

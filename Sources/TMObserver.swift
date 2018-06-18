@@ -34,7 +34,6 @@ public class TMObserver : NSObject, XCTestObservation  {
             }
         }
     }
-
     
     public func testSuiteWillStart(_ testSuite: XCTestSuite) {
         print("test suite \(testSuite.name) will start.")
@@ -51,14 +50,15 @@ public class TMObserver : NSObject, XCTestObservation  {
         
         let testStatus =  (testCase.testRun?.hasSucceeded)!
         let testDuration = testCase.testRun?.testDuration
-        let comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
+        testCase.metaData.comments = "<br>\(testCase.metaData.comments)<br/>" + testCase.metaData.failureMessage
         
-        let response = TMService.uploadTestResult(testId:testCase.metaData.testID!, testComments:comments, testStatus:testStatus, testDuration:testDuration!)
-        if let error = response.error {
-            appendToLog("Upload result failed with error: \(error)!")
-            appendToLog("The faile testcase is: \(response.request!.description)!")
+        let response = TMService.uploadTestResult(testId:testCase.metaData.testID, testComments:testCase.metaData.comments, testStatus:testStatus, testDuration:testDuration!)
+        
+        if response.result.isSuccess {
+            appendToLog("Upload result successed for test case: \(testCase.metaData.testID)!")
         } else{
-            appendToLog("Upload result successed for test case: \(testCase.metaData.testID!)!")
+            appendToLog("Upload result failed with error: \(response.error!)!")
+            appendToLog("Result for testcase \(testCase.metaData.testID) failed to upload!")
         }
     }
     
@@ -75,8 +75,8 @@ public class TMObserver : NSObject, XCTestObservation  {
             takeScreenShot(fileURL:imageURL)
             
             do {
-                let s3address = try CSService!.uploadImage(imageURL: imageURL)
-                testCase.metaData.failureMessage += "<img src='\(s3address)'>"
+                let CSAddress = try CSService!.uploadImage(imageURL: imageURL)
+                testCase.metaData.failureMessage += "<img src='\(CSAddress)'>"
             }
             catch {
                 appendToLog("S3 upload image failed with \(error)!")

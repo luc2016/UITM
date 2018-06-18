@@ -48,28 +48,55 @@ class SessionMockUploadFail : SessionManagerProtocol {
 
 
 class ATMTests: XCTestCase {
-    let sessionManager = SessionMockUploadSuccess()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let atmMockSuccess = ATM(
+        sessionManager: SessionMockUploadSuccess(),
+        baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
+        credentials:"ZmVycmlzOmZlcnJpcw==",
+        env:        "Mobile iOS",
+        testRunKey: "R13"
+    )
+    
+    let atmMockFail = ATM(
+        sessionManager: SessionMockUploadFail(),
+        baseURL:    "https://jira.lblw.ca/rest/atm/1.0",
+        credentials:"ZmVycmlzOmZlcnJpcw==",
+        env:        "Mobile iOS",
+        testRunKey: "R13"
+    )
+    
+    func testuploadTestResultSuccess() {
+        let response = atmMockSuccess.uploadTestResult(testId: "T1", testComments: "test", testStatus: true, testDuration: 12.5)
+        
+        let session = atmMockSuccess.sessionManager as! SessionMockUploadSuccess
+        XCTAssert(session.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
+        XCTAssert(session.parameters!["status"] as! String == "Pass")
+        XCTAssert(session.parameters!["comment"] as! String == "test")
+        XCTAssert(session.parameters!["executionTime"] as! Int == 12500)
+        XCTAssert(response.error == nil)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testuploadTestResultFail() {
+        let response = atmMockFail.uploadTestResult(testId: "T1", testComments: "test", testStatus: true, testDuration: 12.5)
+        
+        let session = atmMockFail.sessionManager as! SessionMockUploadFail
+        XCTAssert(session.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
+        XCTAssert(session.parameters!["status"] as! String == "Pass")
+        XCTAssert(session.parameters!["comment"] as! String == "test")
+        XCTAssert(session.parameters!["executionTime"] as! Int == 12500)
+        XCTAssert(response.error != nil)
+    } 
+    
+    func testuploadTestResultInvalidTestID() {
+        
+    }
+        
+    func testTestCaseDidFinishWithInvalidTestRunKey() {
+        
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTestCaseDidFinishWithInvaliedTMCredentials() {
+        
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+
 }

@@ -40,11 +40,11 @@ public class XCTestCaseMock : XCTestCase{
     }
 }
 
-class S3Mock : CloudStorage {
+class S3MockUploadSuccess : CloudStorage {
     var authenticationCallCount = 0
     var uploadImageWasCallCount = 0
     
-    func uploadImage(imageURL: URL) -> String {
+    func uploadImage(imageURL: URL) throws -> String {
         uploadImageWasCallCount += 1
         return "http:s3/uitm2/abcd.jpg"
     }
@@ -53,6 +53,21 @@ class S3Mock : CloudStorage {
         authenticationCallCount += 1
     }
 }
+
+class S3MockUploadFail : CloudStorage {
+    var authenticationCallCount = 0
+    var uploadImageWasCallCount = 0
+    
+    func uploadImage(imageURL: URL) throws -> String {
+        uploadImageWasCallCount += 1
+        throw NetworkError.uploadfailed
+    }
+    
+    func authenticate() {
+        authenticationCallCount += 1
+    }
+}
+
 
 class TMObserverTests: XCTestCase {
     let testCaseMock = XCTestCaseMock()
@@ -72,15 +87,20 @@ class TMObserverTests: XCTestCase {
         testRunKey: "GOLM-R13"
     )
 
-    let s3Mock = S3Mock()
+    var s3MockUploadSuccess: CloudStorage?
+    var s3MockUploadFail: CloudStorage?
     var observer: TMObserver?
     
     override func setUp() {
-        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:true,CSService:s3Mock)
+        super.setUp()
+        continueAfterFailure = false
+        
+        s3MockUploadSuccess = S3MockUploadSuccess()
+        s3MockUploadFail = S3MockUploadFail()
+
+        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:true,CSService:s3MockUploadSuccess)
         XCTAssertNotNil(observer, "Observer is not initialized properly.")
         
-        testCaseMock.metaData.comments = "test comment"
-        testCaseMock.metaData.testID = "T1"
         (testCaseMock.testRun as! XCTestCaseRunMock).hasSucceeded = true
         (testCaseMock.testRun as! XCTestCaseRunMock).testDuration = 45.2
     }
@@ -89,96 +109,97 @@ class TMObserverTests: XCTestCase {
 
     func testTestSuiteWillStartAttachScreenShot() {
         observer!.testSuiteWillStart(XCTestSuite.default)
-        XCTAssertEqual((observer!.CSService as! S3Mock).authenticationCallCount, 1)
+        XCTAssertEqual((observer!.CSService as! S3MockUploadSuccess).authenticationCallCount, 1)
     }
 
     func testTestSuiteWillStartNotAttachScreenShot() {
-        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:false, CSService:s3Mock)
+        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:false, CSService:s3MockUploadSuccess)
         XCTAssertNotNil(observer, "Observer is not initialized properly.")
 
         observer!.testSuiteWillStart(XCTestSuite.default)
-        XCTAssertEqual((observer!.CSService as! S3Mock).authenticationCallCount, 0)
+        XCTAssertEqual((observer!.CSService as! S3MockUploadSuccess).authenticationCallCount, 0)
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    // Test Meta data of a succeeded test
     func testTestCaseDidFinishATMUploadSuccess() {
+        testCaseMock.metaData.testID = "T1"
+        testCaseMock.metaData.comments = "test comment"
         
         observer!.testCaseDidFinish(testCaseMock)
-        XCTAssertEqual( getLastLogMsg(path: observer!.logPath), "Upload result successed for test case: T1!", "String")
+        XCTAssert(testCaseMock.metaData.comments == "<br>test comment<br/>", "The test comment is incorrect")
+        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Upload result successed for test case: T1!", "Log message is incorrect")
+    }
+    
+    func testTestCaseDidFinishATMUploadSuccessWithFailureMessage() {
+        testCaseMock.metaData.testID = "T1"
+        testCaseMock.metaData.comments = "test comment"
+        testCaseMock.metaData.failureMessage = "<br>failed<br/>"
         
-//        XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
-//        XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
-//        XCTAssert(sessionManager.parameters!["comment"] as! String == "<br>test comment<br/>")
-//        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 45200)
-        //find better way to determin network call passed
-        //Assert that nothing is output to log
-        
+        observer!.testCaseDidFinish(testCaseMock)
+        XCTAssert(testCaseMock.metaData.comments == "<br>test comment<br/><br>failed<br/>", "The test comment is incorrect")
+        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Upload result successed for test case: T1!", "Log message is incorrect")
     }
     
     func testTestCaseDidFinishATMUploadFail() {
+        testCaseMock.metaData.testID = "T2"
+        testCaseMock.metaData.comments = "test comment"
         
-        observer = try? TMObserver(TMService:atmMockFail, attachScreenShot:true, CSService:s3Mock)
+        observer = try? TMObserver(TMService:atmMockFail, attachScreenShot:true, CSService:s3MockUploadSuccess)
         XCTAssertNotNil(observer, "Observer is not initialized properly.")
 
+        observer!.testCaseDidFinish(testCaseMock)
+        XCTAssert(testCaseMock.metaData.comments == "<br>test comment<br/>", "The test comment is incorrect")
+        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Result for testcase T2 failed to upload!", "log message is incorrect")
+    }
+    
+    func testuploadTestResultNoTestID() {
+        testCaseMock.metaData.comments = "test comment"
+        observer = try? TMObserver(TMService:atmMockFail, attachScreenShot:true, CSService:s3MockUploadFail)
+        XCTAssertNotNil(observer, "Observer is not initialized properly.")
         
         observer!.testCaseDidFinish(testCaseMock)
-        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Upload result successed for test case: T1!", "String")
+        XCTAssert(testCaseMock.metaData.comments == "<br>test comment<br/>", "The test comment is incorrect")
+        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Result for testcase  failed to upload!", "log message is incorrect")
+    }
+    
+    func testuploadTestResultNoTestComments() {
+        testCaseMock.metaData.testID = "T3"
+        XCTAssert(testCaseMock.metaData.comments == "", "The test comment is incorrect")
+        XCTAssertEqual(getLastLogMsg(path: observer!.logPath), "Upload result successed for test case: T3!", "Log message is incorrect")
+    }
 
-//        XCTAssert(sessionManager.url == "https://jira.lblw.ca/rest/atm/1.0/testrun/R13/testcase/T1/testresult")
-//        XCTAssert(sessionManager.parameters!["status"] as! String == "Pass")
-//        XCTAssert(sessionManager.parameters!["comment"] as! String == "<br>test comment<br/>")
-//        XCTAssert(sessionManager.parameters!["executionTime"] as! Int == 45200)
-        //assert that failed test case information is logged
-        
-    }
-    
-    func testTestCaseDidFinishWithNoTestID() {
-        
-    }
-    
-    func testTestCaseDidFinishWithNoTestComments() {
-        
-    }
-    
-    func testTestCaseDidFinishWithFailedTestStatus() {
-        
-    }
-    
-    func testTestCaseDidFinishWithInvalidTestRunKey() {
-        
-    }
-    
-    func testTestCaseDidFinishWithInvalidTestID() {
-        
-    }
-    
-    func testTestCaseDidFinishWithInvaliedTMCredentials() {
-        
-    }
-    
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    func testTestCaseFailedAttachScreenShot() {
+    func testTestCaseFailedAttachScreenShotS3UploadSuccess() {
         observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
         
-        XCTAssertEqual((observer!.CSService as! S3Mock).uploadImageWasCallCount, 1)
-        XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/><br>test failed<br/><img src=\'http:s3/uitm2/abcd.jpg\'>")
+        XCTAssertEqual((observer!.CSService as! S3MockUploadSuccess).uploadImageWasCallCount, 1)
+        XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/><img src=\'http:s3/uitm2/abcd.jpg\'>", "The failure message is incorrect")
+        //assert take screen shot is called
+    }
+    
+    func testTestCaseFailedAttachScreenShotS3UploadFail() {
+        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:true, CSService:s3MockUploadFail)
+        XCTAssertNotNil(observer, "Observer is not initialized properly.")
+        observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
+        
+        XCTAssertEqual((observer!.CSService as! S3MockUploadFail).uploadImageWasCallCount, 1)
+        XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/>", "The failure message is incorrect")
+        //assert take screen shot is called
     }
     
     func testTestCaseFailedNotAttachScreenShot() {
         
-        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:false, CSService:s3Mock)
+        observer = try? TMObserver(TMService:atmMockSuccess, attachScreenShot:false, CSService:s3MockUploadSuccess)
         XCTAssertNotNil(observer, "Observer is not initialized properly.")
         observer!.testCase(testCaseMock, didFailWithDescription: "test failed", inFile: nil, atLine: 0)
         
         XCTAssert(testCaseMock.metaData.failureMessage == "<br>test failed<br/>")
-        XCTAssertEqual((observer!.CSService as! S3Mock).uploadImageWasCallCount, 0)
+        XCTAssertEqual((observer!.CSService as! S3MockUploadSuccess).uploadImageWasCallCount, 0)
     }
 
-    
     private func getLastLogMsg(path: String) -> String {
         return ""
     }

@@ -11,6 +11,7 @@ import XCTest
 class TMObserverInitTests: XCTestCase {
     
     override func setUp() {
+        super.setUp()
         continueAfterFailure = false
     }
 
@@ -84,7 +85,6 @@ class TMObserverInitTests: XCTestCase {
         XCTAssertThrowsError(try TMObserver(TMService: atm, attachScreenShot: true,CSService: nil), "Observer init should throw config error") { (error) in
             XCTAssertEqual(error as! InitError, InitError.noCloudService, "Observer init should throw config error")
         }
-
     }
 
 }
